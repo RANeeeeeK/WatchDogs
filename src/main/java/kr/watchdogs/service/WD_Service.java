@@ -24,6 +24,16 @@ public class WD_Service {
 		return G_FDS;
 	}
 	
+	public List<Member> getBlockChain(){
+		List<Member> BlockChain = WD_Repository.findAll();
+		return BlockChain;
+	}
+	
+	public List<Member> getintroduce(){
+		List<Member> introduce = WD_Repository.findAll();
+		return introduce;
+	}
+	
 	public void member_Insert(Member vo) {
 		WD_Repository.save(vo);
 	}

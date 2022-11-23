@@ -26,9 +26,23 @@ public class WD_Controller {
 	
 	@RequestMapping("/G_FDS")
 	public String G_FDS(Model model) {
-		List<Member> G_FDS = WD_Service.getIndex();
+		List<Member> G_FDS = WD_Service.getG_FDS();
 		model.addAttribute("G_FDS", G_FDS);
 		return "G_FDS"; // G_FDS.jsp
+	}
+	
+	@RequestMapping("/BlockChain")
+	public String BlockChain(Model model) {
+		List<Member> BlockChain = WD_Service.getBlockChain();
+		model.addAttribute("BlockChain", BlockChain);
+		return "BlockChain"; // BlockChain.jsp
+	}
+	
+	@RequestMapping("/introduce")
+	public String introduce(Model model) {
+		List<Member> introduce = WD_Service.getintroduce();
+		model.addAttribute("introduce", introduce);
+		return "introduce"; // introduce.jsp
 	}
 	
 	@PostMapping("/join")
