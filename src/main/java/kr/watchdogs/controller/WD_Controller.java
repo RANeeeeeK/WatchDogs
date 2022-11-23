@@ -45,6 +45,34 @@ public class WD_Controller {
 		return "introduce"; // introduce.jsp
 	}
 	
+	@RequestMapping("/forgot_password")
+	public String forgot_password(Model model) {
+		List<Member> forgot_password = WD_Service.getforgot_password();
+		model.addAttribute("forgot_password", forgot_password);
+		return "forgot_password"; // forgot_password.jsp
+	}
+	
+	@RequestMapping("/login")
+	public String login(Model model) {
+		List<Member> login = WD_Service.getlogin();
+		model.addAttribute("login", login);
+		return "login"; // login.jsp
+	}
+	
+	@RequestMapping("/register")
+	public String register(Model model) {
+		List<Member> register = WD_Service.getregister();
+		model.addAttribute("register", register);
+		return "register"; // register.jsp
+	}
+	
+	@RequestMapping("/reset_password")
+	public String reset_password(Model model) {
+		List<Member> reset_password = WD_Service.getreset_password();
+		model.addAttribute("reset_password", reset_password);
+		return "reset_password"; // reset_password.jsp
+	}
+	
 	@PostMapping("/join")
 	public String join(Member vo) {
 		WD_Service.member_Insert(vo);

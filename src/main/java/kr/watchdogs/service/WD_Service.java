@@ -34,6 +34,27 @@ public class WD_Service {
 		return introduce;
 	}
 	
+	public List<Member> getforgot_password(){
+		List<Member> forgot_password = WD_Repository.findAll();
+		return forgot_password;
+	}
+	
+	public List<Member> getlogin(){
+		List<Member> login = WD_Repository.findAll();
+		return login;
+	}
+	
+	public List<Member> getregister(){
+		List<Member> register = WD_Repository.findAll();
+		return register;
+	}
+	
+	public List<Member> getreset_password(){
+		List<Member> reset_password = WD_Repository.findAll();
+		return reset_password;
+	}
+	
+	
 	public void member_Insert(Member vo) {
 		WD_Repository.save(vo);
 	}
