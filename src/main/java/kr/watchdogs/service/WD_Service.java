@@ -16,7 +16,7 @@ public class WD_Service {
 	private WD_Repository WD_Repository;
 	
 	// 회원가입
-		@SQLInsert(sql="insert into member(id,pw,name,birth) values(#{id},#{pw},#{name},#{birth}")
+		
 		public void memberInsert(Member vo) {
 			WD_Repository.save(vo);
 		}
