@@ -45,31 +45,40 @@
               <input
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
                 type="text"
-                name="username"
-                placeholder="Username"
+                name="id"
+                placeholder="Id"
                 required
               />
               <input
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
-                type="email"
-                name="email"
-                placeholder="Email address"
-                required
-              />
-              <input
-                class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
-                type="password"
-                name="password"
+                type="pw"
+                name="pw"
                 placeholder="Password"
                 required
               />
               <input
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
-                type="password"
-                name="password_confirmation"
-                placeholder="Confirm Password"
+                type="name"
+                name="name"
+                placeholder="User Name"
                 required
-              />
+              /> 
+              <input
+              	class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
+             	type="date" 
+             	data-placeholder="Birth Date"
+				required aria-required="true" value={startDateValue}
+				className={styles.selectDay} onChange={StartDateValueHandler}</input>
+			<style>
+				input[type='date']::before {
+					content: attr(data-placeholder);
+					width: 100%;
+				}
+
+				input[type='date']:focus::before, input[type='date']:valid::before {
+					display: none;
+				}
+			</style>
               <div class="flex items-center justify-between">
                 <!-- Remember me toggle -->
                 <label class="flex items-center">
