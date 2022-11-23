@@ -36,7 +36,7 @@
        });
        $(document).ready(function(){
           $("#fds").click(function(){
-              location.href="G-FDS";
+              location.href="G_FDS";
            });
 
        });
