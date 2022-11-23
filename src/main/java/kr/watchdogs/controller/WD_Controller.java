@@ -73,19 +73,14 @@ public class WD_Controller {
 		return "reset_password"; // reset_password.jsp
 	}
 	
-	@PostMapping("/join")
-	public String join(Member vo) {
-		WD_Service.member_Insert(vo);
-		return "redirect:/join";
+	// 회원가입
+	@PostMapping("/register")
+	public String register(Member vo) {
+		WD_Service.memberInsert(vo);
+		return "redirect:/index";
 	}
 	
-//	@RequestMapping("/list")
-//	public String list(Model model) {
-//		List<Member> list = WD_Service.getList();
-//		model.addAttribute("list", list);
-//		return "list"; // list.jsp
-//	}
-//	
+	
 //	@GetMapping("/register")
 //	public String register() {
 //		return "register";

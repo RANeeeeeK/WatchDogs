@@ -54,8 +54,8 @@ public class WD_Service {
 		return reset_password;
 	}
 	
-	
-	public void member_Insert(Member vo) {
+	// 회원가입
+	public void memberInsert(Member vo) {
 		WD_Repository.save(vo);
 	}
 

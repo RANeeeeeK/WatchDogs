@@ -21,7 +21,6 @@ public class Member {
 	private String id;
 	private String pw;
 	private String name;
-	private String sex;
 	
 	@Column(columnDefinition = "datetime default now()")
 	private Date birth; // now()
