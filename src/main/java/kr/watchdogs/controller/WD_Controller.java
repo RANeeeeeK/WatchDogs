@@ -17,6 +17,19 @@ public class WD_Controller {
 	@Autowired
 	WD_Service WD_Service;
 	
+	@RequestMapping("/register")
+	public String register(Model model) {
+		List<Member> register = WD_Service.getregister();
+		model.addAttribute("register", register);
+		return "register"; // register.jsp
+	}
+	// 회원가입
+		@PostMapping("/register")
+		public String register(Member vo) {
+			WD_Service.memberInsert(vo);
+			return "redirect:/login";
+		}
+	
 	@RequestMapping("/index")
 	public String index(Model model) {
 		List<Member> index = WD_Service.getIndex();
@@ -56,15 +69,11 @@ public class WD_Controller {
 	public String login(Model model) {
 		List<Member> login = WD_Service.getlogin();
 		model.addAttribute("login", login);
-		return "login"; // login.jsp
+		return "index"; // login.jsp
 	}
 	
-	@RequestMapping("/register")
-	public String register(Model model) {
-		List<Member> register = WD_Service.getregister();
-		model.addAttribute("register", register);
-		return "register"; // register.jsp
-	}
+	
+		
 	
 	@RequestMapping("/reset_password")
 	public String reset_password(Model model) {
@@ -73,12 +82,6 @@ public class WD_Controller {
 		return "reset_password"; // reset_password.jsp
 	}
 	
-	// 회원가입
-	@PostMapping("/register")
-	public String register(Member vo) {
-		WD_Service.memberInsert(vo);
-		return "redirect:/index";
-	}
 	
 	
 //	@GetMapping("/register")

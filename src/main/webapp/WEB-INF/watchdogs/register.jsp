@@ -46,6 +46,7 @@
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
                 type="text"
                 name="id"
+                
                 placeholder="Id"
                 required
               />
@@ -53,6 +54,7 @@
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
                 type="pw"
                 name="pw"
+               
                 placeholder="Password"
                 required
               />
@@ -60,12 +62,14 @@
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
                 type="name"
                 name="name"
+                
                 placeholder="User Name"
                 required
               /> 
               <input
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
                 type="date" 
+                
                 data-placeholder="Birth Date"
             	required aria-required="true"
               />

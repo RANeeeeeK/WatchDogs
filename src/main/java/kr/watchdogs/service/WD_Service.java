@@ -2,6 +2,7 @@ package kr.watchdogs.service;
 
 import java.util.List;
 
+import org.hibernate.annotations.SQLInsert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,17 @@ public class WD_Service {
 	
 	@Autowired
 	private WD_Repository WD_Repository;
+	
+	// 회원가입
+		@SQLInsert(sql="insert into member(id,pw,name,birth) values(#{id},#{pw},#{name},#{birth}")
+		public void memberInsert(Member vo) {
+			WD_Repository.save(vo);
+		}
+	
+	public List<Member> getregister(){
+		List<Member> register = WD_Repository.findAll();
+		return register;
+	}
 	
 	public List<Member> getIndex(){
 		List<Member> index = WD_Repository.findAll();
@@ -44,19 +56,13 @@ public class WD_Service {
 		return login;
 	}
 	
-	public List<Member> getregister(){
-		List<Member> register = WD_Repository.findAll();
-		return register;
-	}
+	
 	
 	public List<Member> getreset_password(){
 		List<Member> reset_password = WD_Repository.findAll();
 		return reset_password;
 	}
 	
-	// 회원가입
-	public void memberInsert(Member vo) {
-		WD_Repository.save(vo);
-	}
+	
 
 }

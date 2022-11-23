@@ -8,7 +8,7 @@
 		<version>2.7.4</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>kr.watchdogs</groupId>
+	<groupId>kr.watchdogs2</groupId>
 	<artifactId>WD_Web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>WD_Web</name>
