@@ -1,11 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="cpath" value="${pageContext.request.contextPath}"/>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,7 +59,7 @@
             <!-- Sidebar links -->
             <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
-              <div x-data="{ isActive: true, open: true}">
+              <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -168,7 +160,7 @@
                 
               </div>
               <!-- introduce page -->
-              <div x-data="{ isActive: false, open: false}">
+              <div x-data="{ isActive: true, open: true}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
