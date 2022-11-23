@@ -13,7 +13,7 @@ import lombok.Data;
 // ORM(Object<-->Table)
 @Entity
 @Data
-public class Member {
+public class WD_Member {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
