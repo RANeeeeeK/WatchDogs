@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,32 +23,33 @@
    <script>
       $(document).ready(function(){
           $("#db").click(function(){
-              location.href="index.html";
+              location.href="index";
            });
 
        });
 
        $(document).ready(function(){
           $("#blc").click(function(){
-              location.href="BlockChain.html";
+              location.href="BlockChain";
            });
 
        });
        $(document).ready(function(){
           $("#fds").click(function(){
-              location.href="G-FDS.html";
+              location.href="G-FDS";
            });
 
        });
+       
        $(document).ready(function(){
           $("#int").click(function(){
-              location.href="introduce.html";
+              location.href="introduce";
            });
 
        });
 
     </script>
-  </head>
+  </head> 
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
       <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
@@ -58,7 +67,7 @@
             <!-- Sidebar links -->
             <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
-              <div x-data="{ isActive: false, open: false}">
+              <div x-data="{ isActive: true, open: true}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -92,7 +101,7 @@
               </div>
 
               <!-- G-FDS links -->
-              <div x-data="{ isActive: true, open: true}">
+              <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -158,7 +167,6 @@
                 </a>
                 
               </div>
-
               <!-- introduce page -->
               <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->

@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,27 +23,27 @@
    <script>
       $(document).ready(function(){
           $("#db").click(function(){
-              location.href="index.html";
+              location.href="index";
            });
 
        });
 
        $(document).ready(function(){
           $("#blc").click(function(){
-              location.href="BlockChain.html";
+              location.href="BlockChain";
            });
 
        });
        $(document).ready(function(){
           $("#fds").click(function(){
-              location.href="G-FDS.html";
+              location.href="G-FDS";
            });
 
        });
        
        $(document).ready(function(){
           $("#int").click(function(){
-              location.href="introduce.html";
+              location.href="introduce";
            });
 
        });

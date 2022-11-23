@@ -23,27 +23,27 @@
    <script>
       $(document).ready(function(){
           $("#db").click(function(){
-              location.href="index.html";
+              location.href="index";
            });
 
        });
 
        $(document).ready(function(){
           $("#blc").click(function(){
-              location.href="BlockChain.html";
+              location.href="BlockChain";
            });
 
        });
        $(document).ready(function(){
           $("#fds").click(function(){
-              location.href="G-FDS.html";
+              location.href="G_FDS";
            });
 
        });
        
        $(document).ready(function(){
           $("#int").click(function(){
-              location.href="introduce.html";
+              location.href="introduce";
            });
 
        });

@@ -18,10 +18,17 @@ public class WD_Controller {
 	WD_Service WD_Service;
 	
 	@RequestMapping("/index")
-	public String list(Model model) {
+	public String index(Model model) {
 		List<Member> index = WD_Service.getIndex();
 		model.addAttribute("index", index);
 		return "index"; // index.jsp
+	}
+	
+	@RequestMapping("/G_FDS")
+	public String G_FDS(Model model) {
+		List<Member> G_FDS = WD_Service.getIndex();
+		model.addAttribute("G_FDS", G_FDS);
+		return "G_FDS"; // G_FDS.jsp
 	}
 	
 	@PostMapping("/join")

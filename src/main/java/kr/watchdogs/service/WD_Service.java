@@ -19,6 +19,11 @@ public class WD_Service {
 		return index;
 	}
 	
+	public List<Member> getG_FDS(){
+		List<Member> G_FDS = WD_Repository.findAll();
+		return G_FDS;
+	}
+	
 	public void member_Insert(Member vo) {
 		WD_Repository.save(vo);
 	}
