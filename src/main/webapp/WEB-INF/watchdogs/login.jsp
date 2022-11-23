@@ -44,15 +44,15 @@
             <form action="#" class="space-y-6">
               <input
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
-                type="email"
-                name="email"
-                placeholder="Email address"
+                type="id"
+                name="id"
+                placeholder="Id"
                 required
               />
               <input
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
-                type="password"
-                name="password"
+                type="pw"
+                name="pw"
                 placeholder="Password"
                 required
               />
@@ -117,7 +117,7 @@
 
             <!-- Register link -->
             <div class="text-sm text-gray-600 dark:text-gray-400">
-              Don't have an account yet? <a href="register.html" class="text-blue-600 hover:underline">Register</a>
+              Don't have an account yet? <a href="register" class="text-blue-600 hover:underline">Register</a>
             </div>
           </div>
         </main>
