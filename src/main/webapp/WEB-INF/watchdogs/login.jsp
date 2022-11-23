@@ -117,7 +117,7 @@
 
             <!-- Register link -->
             <div class="text-sm text-gray-600 dark:text-gray-400">
-              Don't have an account yett? <a href="register" class="text-blue-600 hover:underline">Register</a>
+              Don't have an account yet? <a href="register" class="text-blue-600 hover:underline">Register</a>
             </div>
           </div>
         </main>
