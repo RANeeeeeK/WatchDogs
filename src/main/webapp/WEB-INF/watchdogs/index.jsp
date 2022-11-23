@@ -423,7 +423,7 @@
                 class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
               >
                 <!-- <img src="build\images\WatchDogsLogo.png" width="50px" height="50px"> -->
-                Watch Dogsㄴㄴㄴ
+                Watch Dogs
               </a>
 
               <!-- Mobile sub menu button -->
