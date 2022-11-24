@@ -16,9 +16,15 @@ public class WD_Service {
 	public void getjoin(WD_Member vo) {
 		WD_Repository.save(vo);
 	}
-	//로그인
+	
+	// 로그인
 	public WD_Member getlogin(WD_Member login) {
 		return WD_Repository.login(login.getUser_id(), login.getUser_pw());
+	}
+	
+	// 아이디 중복체크
+	public WD_Member getcheck_id(String check_id) {
+		return WD_Repository.check_id(check_id);
 	}
 	
 	//창 이동 

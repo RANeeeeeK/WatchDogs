@@ -18,6 +18,7 @@
     />
     <link rel="stylesheet" href="build/css/tailwind.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -42,13 +43,20 @@
           <div class="w-full max-w-sm px-4 py-6 space-y-6 bg-white rounded-md dark:bg-darker">
             <h1 class="text-xl font-semibold text-center">Register</h1>
             <form action="${cpath}/register" method="post" class="space-y-6">
-              <input
-                class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
-                type="text"
-                name="user_id"
-                placeholder="Id"
-                required
-              />
+              <div>
+	              <input
+	                class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
+	                type="text"
+	                name="user_id"
+	                placeholder="Id"
+	                required
+	              />
+	              <p id="idCheck"></p>
+	              <button
+	                class="w-full px-4 py-2 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+					id="idCheck_btn"
+					type="button">아이디 중복체크</button>
+              </div>
               <input
                 class="w-full px-4 py-2 border rounded-md dark:bg-darker dark:border-gray-700 focus:outline-none focus:ring focus:ring-primary-100 dark:focus:ring-primary-darker"
                 type="pw"
@@ -177,8 +185,51 @@
         </button>
       </div>
     </div>
+    
+	<script type="text/javascript">
+		$(document).ready(function(){
+		    <!-- 아이디 중복체크 ajax -->
+			// 아이디 중복체크 버튼을 눌렀을 때!
+			$('#idCheck_btn').on('click', function() {
+				// 사용자가 입력한 id 가져오기
+				// input태그인데 name = user_id인 요소의 값을 가져올 것.
+				// 2개(로그인, 회원가입)이기 때문에 인덱스 번호 사용해서 회원가입(두번째)에 있는 요소의 값을 가져올 것 -- 해당x
+				var check_id = $('input[name=user_id]').val();
+				console.log(check_id);
+	
+				// ajax사용해서 비동기통신으로 아이디가 있는지 없는지 체크 후 결과값 받아오기
+				$.ajax({
+					// url " 어디와 통신을 할 것인가? action에 작성하는 것과 비슷함
+					url : "registerAjax",
+					type : 'post',
+					// data : url작성한 곳에 데이터를 보낼 때
+					data : {
+						"check_id" : check_id
+					},
+					// dataType : 결과값을 어떤 타입으로 받아올 것인지(json, text..)
+					dataType : "text",
+					// success : 통신 성공시
+					success : function(result) {
+						if (result === 'find') {
+							$('#idCheck').html("아이디가 중복되었습니다");
+						} else {
+							$('#idCheck').html("사용가능한 아이디입니다.");
+						}
+					},
+					//error : 통신 실패시
+					error : function(e) {
+						alert("실패");
+						console.log(e)
+					}
+				})
+	
+			});
+			
+		});
+		
+	</script>
 
-    <script>
+	<script>
       const setup = () => {
         const getTheme = () => {
           if (window.localStorage.getItem('dark')) {

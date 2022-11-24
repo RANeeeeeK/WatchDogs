@@ -1,0 +1,11 @@
+select * from wd_member;
+
+drop table wd_member;
+
+create table wd_member(
+idx int(10) auto_increment primary key,
+user_id varchar(15) not null,
+user_pw varchar(15) not null,
+user_name varchar(10) not null,
+cnt int(10)
+);

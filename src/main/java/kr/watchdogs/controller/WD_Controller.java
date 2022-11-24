@@ -5,8 +5,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.watchdogs.entity.WD_Member;
 import kr.watchdogs.service.WD_Service;
@@ -22,6 +24,21 @@ public class WD_Controller {
 	public String register(WD_Member vo) {
 		WD_Service.getjoin(vo);
 		return "redirect:/login";
+	}
+	
+	// 아이디 중복체크
+	@ResponseBody
+	@PostMapping("/registerAjax")
+	public String check_id(String check_id) {
+		WD_Member vo = WD_Service.getcheck_id(check_id);
+		System.out.println(vo);
+		
+		if(vo != null) {
+			return "find";
+		}
+		
+		return null;
+		
 	}
 
 	// 로그인

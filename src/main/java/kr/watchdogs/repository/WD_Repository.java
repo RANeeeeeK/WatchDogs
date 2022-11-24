@@ -11,6 +11,9 @@ public interface WD_Repository extends JpaRepository<WD_Member, Long> {
 	
 	@Query(value="Select * FROM wd_member WHERE user_id=? and user_pw=?", nativeQuery=true)
 	WD_Member login(String user_id, String user_pw);
+	
+	@Query(value="Select * FROM wd_member WHERE user_id=?", nativeQuery=true)
+	WD_Member check_id(String check_id);
 
 }
 
