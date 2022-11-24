@@ -22,8 +22,13 @@ public class WD_Controller {
 	// 회원가입
 	@PostMapping("/register")
 	public String register(WD_Member vo) {
-		WD_Service.getjoin(vo);
-		return "redirect:/login";
+		WD_Member row = WD_Service.getcheck_id(vo.getUser_id());
+		if(row != null) {
+			return "redirect:/register";
+		}else {
+			WD_Service.getjoin(vo);
+			return "redirect:/login";
+		}
 	}
 	
 	// 아이디 중복체크
