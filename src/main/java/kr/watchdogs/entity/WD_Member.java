@@ -18,12 +18,9 @@ public class WD_Member {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idx; // PK, 자동증가컬럼
-	private String id;
-	private String pw;
-	private String name;
-	
-	@Column(columnDefinition = "datetime default now()")
-	private Date birth; // now()
+	private String user_id;
+	private String user_pw;
+	private String user_name;
 	@Column(columnDefinition = "int default 0")
 	private Long cnt;
 
