@@ -1,11 +1,7 @@
 package kr.watchdogs.service;
 
-import java.util.List;
-
-import org.hibernate.annotations.SQLInsert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import kr.watchdogs.entity.WD_Member;
 import kr.watchdogs.repository.WD_Repository;
@@ -17,13 +13,12 @@ public class WD_Service {
 	private WD_Repository WD_Repository;
 
 	// 회원가입
-
-	public void memberInsert(WD_Member vo) {
+	public void getjoin(WD_Member vo) {
 		WD_Repository.save(vo);
 	}
 	//로그인
-	public WD_Member getlogin(WD_Member vo) {
-		return WD_Repository.login(vo.getUser_id(), vo.getUser_pw());
+	public WD_Member getlogin(WD_Member login) {
+		return WD_Repository.login(login.getUser_id(), login.getUser_pw());
 	}
 	
 	//창 이동 

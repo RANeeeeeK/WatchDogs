@@ -1,7 +1,5 @@
 package kr.watchdogs.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +17,17 @@ public class WD_Controller {
 	@Autowired
 	WD_Service WD_Service;
 
-	@RequestMapping("/register")
-	public String register(Model model) {
-		String register = WD_Service.register();
-		model.addAttribute("register", register);
-		return "register"; // register.jsp
-	}
-
 	// 회원가입
 	@PostMapping("/register")
 	public String register(WD_Member vo) {
-		WD_Service.memberInsert(vo);
+		WD_Service.getjoin(vo);
 		return "redirect:/login";
 	}
 
-//	 로그인
+	// 로그인
 	@PostMapping("/login")
-	public String login(WD_Member member, HttpSession session) {
-		WD_Member vo = WD_Service.getlogin(member);
+	public String login(WD_Member login, HttpSession session) {
+		WD_Member vo = WD_Service.getlogin(login);
 		session.setAttribute("vo", vo);
 		if (vo != null) {
 			return "redirect:/index";
@@ -45,6 +36,7 @@ public class WD_Controller {
 		}
 	}
 
+	// 창 이동
 	@RequestMapping("/index")
 	public String index(Model model) {
 		String index = WD_Service.Index();
@@ -66,6 +58,13 @@ public class WD_Controller {
 		return "BlockChain"; // BlockChain.jsp
 	}
 
+	@RequestMapping("/register")
+	public String register(Model model) {
+		String register = WD_Service.register();
+		model.addAttribute("register", register);
+		return "register"; // register.jsp
+	}
+	
 	@RequestMapping("/introduce")
 	public String introduce(Model model) {
 		String introduce = WD_Service.introduce();
