@@ -103,6 +103,7 @@ $(document).ready(function(){
 	        dataType:'json',
 			success : function(res){
 				console.log(res);
+				console.log(res.payload.address);
 				
 			},error : function(e){
 				console.log(e);
@@ -112,7 +113,7 @@ $(document).ready(function(){
 	});
 });
 
-// csv 첨부파일 연동
+// 사용자 csv 첨부파일 연동 : 도넛그래프, 관계그래프
 $(document).ready(function(){
 	$("#csv_button").click(function(event){
 		//event.preventDefault();
@@ -129,13 +130,14 @@ $(document).ready(function(){
 	        contentType : false,
 	        processData : false,
 			success : function(res){
+				
 				console.log(res);
 				const normal = [];
 				const abnormal = [];
-				for(let i = 0; i < res.length; i++){
-					if(res[i]=="0"){
+				for(let i = 0; i < res[0].length; i++){
+					if(res[0][i]=="0"){
 						normal.push("0");
-					}else if(res[i]=="1"){
+					}else if(res[0][i]=="1"){
 						abnormal.push("1");
 					}
 				}
@@ -170,6 +172,7 @@ $(document).ready(function(){
 					    },
 					  },
 					})
+				$("#listDiv").html(res[1]);
 				
 			},error : function(e){
 				console.log(e);
