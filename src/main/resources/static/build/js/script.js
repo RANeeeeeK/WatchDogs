@@ -88,36 +88,96 @@ const barChart = new Chart(document.getElementById('barChart'), {
   },
 })
 
-const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
-  type: 'doughnut',
-  data: {
-    labels: ['Oct', 'Nov', 'Dec'],
-    datasets: [
-      {
-        data: [random(), random(), random()],
-        backgroundColor: [colors.primary, colors.primaryLighter, colors.primaryLight],
-        hoverBackgroundColor: colors.primaryDark,
-        borderWidth: 0,
-        weight: 0.5,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      position: 'bottom',
-    },
+// address 지갑주소 연동
+$(document).ready(function(){
+	$("#adr_button").click(function(event){
+		//event.preventDefault();
+		var user_adr = $("#user_adr");
+		console.log(user_adr);
+		
+		$.ajax({
+	        url : 'http://127.0.0.1:5000/user_adr',
+	        async : true,
+	        type : 'get',
+	        data : user_adr,
+	        dataType:'json',
+			success : function(res){
+				console.log(res);
+				
+			},error : function(e){
+				console.log(e);
+				alert("올바른 형식의 파일을 넣어주세요.");
+			}
+	    });
+	});
+});
 
-    title: {
-      display: false,
-    },
-    animation: {
-      animateScale: true,
-      animateRotate: true,
-    },
-  },
-})
+// csv 첨부파일 연동
+$(document).ready(function(){
+	$("#csv_button").click(function(event){
+		//event.preventDefault();
+		var user_csv_form = $("#user_csv_form")[0];
+		var csv_form = new FormData(user_csv_form);
+		
+		$.ajax({
+	        url : 'http://127.0.0.1:5000/user_csv',
+	        async : true,
+	        type : 'post',
+	        data : csv_form,
+	        dataType:'json',
+	        cache: false,
+	        contentType : false,
+	        processData : false,
+			success : function(res){
+				console.log(res);
+				const normal = [];
+				const abnormal = [];
+				for(let i = 0; i < res.length; i++){
+					if(res[i]=="0"){
+						normal.push("0");
+					}else if(res[i]=="1"){
+						abnormal.push("1");
+					}
+				}
+				
+				const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
+					  type: 'doughnut',
+					  data: {
+					    labels: ['normal', 'abnormal'],
+					    datasets: [
+					      {
+					        data: [normal.length, abnormal.length],
+					        backgroundColor: [colors.primary, colors.primaryLighter],
+					        hoverBackgroundColor: colors.primaryDark,
+					        borderWidth: 0,
+					        weight: 0.5,
+					      },
+					    ],
+					  },
+					  options: {
+					    responsive: true,
+					    maintainAspectRatio: false,
+					    legend: {
+					      position: 'bottom',
+					    },
+
+					    title: {
+					      display: false,
+					    },
+					    animation: {
+					      animateScale: true,
+					      animateRotate: true,
+					    },
+					  },
+					})
+				
+			},error : function(e){
+				console.log(e);
+				alert("올바른 형식의 파일을 넣어주세요.");
+			}
+	    });
+	});
+});
 
 const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
   type: 'bar',
