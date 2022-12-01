@@ -204,7 +204,7 @@
 
               <!-- Brand -->
               <a
-                href="index.html"
+                href="index"
                 class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
               >
                 <!-- <img src="build\images\WatchDogsLogo.png" width="50px" height="50px"> -->
@@ -974,25 +974,29 @@
             <!-- Content -->
             <div class="mt-2">
               <!-- State cards -->
-              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
+              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4" >
                 
+            <iframe src="https://hub.graphistry.com/graph/graph.html?dataset=362c0fbdb2ce43ba96d7968c81286c1e&type=arrow&viztoken=8eea7719-a372-4c7a-b6e3-b82bc7daf2c3&usertag=ca178ed8-pygraphistry-0.28.5&splashAfter=1669883380&info=true&play=5000&session=498a8703c0564689a6665e415d904761"
+                    allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
+                    oallowfullscreen="true" msallowfullscreen="true"
+                    style="width:440%; height:500px; border: 1px solid #DDD; overflow: hidden"
+                    
+            >
+            </iframe>
+        
               </div>
 
-             
-
-              
-
-          <!-- Main footer -->
-          <footer
-            class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
-          >
-            <div>Watch Dogs &copy; 2022</div>
-            <div>
-              Made by
-              123
-            </div>
-          </footer>
-        </div>
+	          <!-- Main footer -->
+	          <footer
+	            class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
+	          >
+	            <div>Watch Dogs &copy; 2022</div>
+	            <div>
+	              Made by
+	              123
+	            </div>
+	          </footer>
+	        </div>
 
         <!-- Panels -->
 

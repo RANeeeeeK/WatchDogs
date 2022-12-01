@@ -94,12 +94,6 @@ public class WD_Controller {
 		return "diagnosis"; // diagnosis.jsp
 	}
 
-	@RequestMapping("/forgot_password")
-	public String forgot_password(Model model) {
-		String forgot_password = WD_Service.forgot_password();
-		model.addAttribute("forgot_password", forgot_password);
-		return "forgot_password"; // forgot_password.jsp
-	}
 
 	@RequestMapping("/login")
 	public String login(Model model) {
@@ -108,16 +102,6 @@ public class WD_Controller {
 		return "login"; // login.jsp
 	}
 
-	@RequestMapping("/reset_password")
-	public String reset_password(Model model) {
-		String reset_password = WD_Service.reset_password();
-		model.addAttribute("reset_password", reset_password);
-		return "reset_password"; // reset_password.jsp
-	}
-
-//	@GetMapping("/register")
-//	public String register() {
-//		return "register";
-//	}
+	
 
 }

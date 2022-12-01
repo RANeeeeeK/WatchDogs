@@ -43,14 +43,9 @@ public class WD_Service {
 	public String introduce() {
 		return "diagnosis";
 	}
-	public String forgot_password() {
-		return "forgot_password";
-	}
 	public String login() {
 		return "login";
 	}
-	public String reset_password() {
-		return "reset_password";
-	}
+	
 
 }
