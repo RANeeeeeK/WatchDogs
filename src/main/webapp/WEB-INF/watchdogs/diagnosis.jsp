@@ -1,3 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,27 +24,27 @@
    <script>
       $(document).ready(function(){
           $("#db").click(function(){
-              location.href="index.html";
+              location.href="index";
            });
 
        });
 
        $(document).ready(function(){
           $("#blc").click(function(){
-              location.href="BlockChain.html";
+              location.href="BlockChain";
            });
 
        });
        $(document).ready(function(){
           $("#fds").click(function(){
-              location.href="G-FDS.html";
+              location.href="G_FDS";
            });
 
        });
        
        $(document).ready(function(){
           $("#int").click(function(){
-              location.href="diagnosis.html";
+              location.href="diagnosis";
            });
 
        });
@@ -60,7 +68,7 @@
             <!-- Sidebar links -->
             <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
-              <div x-data="{ isActive: true, open: true}">
+              <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -94,6 +102,7 @@
                 >
                   <span aria-hidden="true">
                     <i class="fa-solid fa-diagram-project"></i>
+                    </svg>
                   </span>
                   <span id="fds" class="ml-2 text-sm">G-FDS</span>
                  
@@ -113,15 +122,16 @@
                   aria-haspopup="true"
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
-                <span aria-hidden="true">
-                  <i class="fa-sharp fa-solid fa-link"></i>
-                </span> 
+                  <span aria-hidden="true">
+                    <i class="fa-sharp fa-solid fa-link"></i>
+                  </span>
                   <span id="blc" class="ml-2 text-sm"> BlockChain</span>
-                </a>
 
+                </a>
+                
               </div>
               <!-- introduce page -->
-              <div x-data="{ isActive: false, open: false}">
+              <div x-data="{ isActive: true, open: true}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -138,10 +148,8 @@
                   <span id="int" class="ml-2 text-sm">Diagnosis</span>
                  
                 </a>
-              
+     
               </div>
-
-        
 
             </nav>
 
@@ -655,9 +663,36 @@
                     aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'"
                   >
-                  <i class="fa-sharp fa-solid fa-link"></i>
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </span>
                     <span class="ml-2 text-sm"> BlockChain </span>
-                    
+                    <span aria-hidden="true" class="ml-auto">
+                      <!-- active class 'rotate-180' -->
+                      <svg
+                        class="w-4 h-4 transition-transform transform"
+                        :class="{ 'rotate-180': open }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
                   </a>
                 </div>
 
@@ -746,8 +781,22 @@
           <main>
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">Dashboard</h1>
-              </div>
+              <h1 class="text-2xl font-semibold">Diagnosis</h1>
+			</div>
+
+            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
+			  
+			  <!-- 첨부파일선택 -->
+              <form id="user_csv_form" action="/upload" method="post" enctype="multipart/form-data">
+                 <input type="file" name="user_csv" class="rounded-md">
+                 <button
+                       type="button"
+                       id="csv_button"
+                       class="text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none  focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+                      style="padding: 2px 10px;">시각화</button>
+                     <!-- w-full -->
+              </form>
+            </div>
 
             <!-- Content -->
             <div class="mt-2">
@@ -972,138 +1021,25 @@
                 </div>
               </div>
 
-              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
-                <!-- Bar chart card -->
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
-                    <div class="flex items-center space-x-2">
-                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
-                      <button
-                        class="relative focus:outline-none"
-                        x-cloak
-                        @click="isOn = !isOn; $parent.updateBarChart2(isOn)"
-                      >
-                        <div
-                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-                        ></div>
-                        <div
-                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
-                        >
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart2"></canvas>
-                  </div>
-                </div>
-
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
-                    <div class="flex items-center space-x-2">
-                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
-                      <button
-                        class="relative focus:outline-none"
-                        x-cloak
-                        @click="isOn = !isOn; $parent.updateBarChart3(isOn)"
-                      >
-                        <div
-                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-                        ></div>
-                        <div
-                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
-                        ></div>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart3"></canvas>
-                  </div>
-                </div>
-
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
-                    <div class="flex items-center space-x-2">
-                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
-                      <button
-                        class="relative focus:outline-none"
-                        x-cloak
-                        @click="isOn = !isOn; $parent.updateBarChart4(isOn)"
-                      >
-                        <div
-                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-                        ></div>
-                        <div
-                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
-                        ></div>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart4"></canvas>
-                  </div>
-                </div>
-              </div>
+              
 
               
 
               <!-- Two grid columns -->
-              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
-                <!-- Active users chart -->
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 ">
+                <!-- G-FDS -->
                 <div class="col-span-1 bg-white rounded-md dark:bg-darker">
                   <!-- Card header -->
                   <div class="p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Active users right now</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">G-FDS</h4>
                   </div>
-                  <p class="p-4">
-                    <span class="text-2xl font-medium text-gray-500 dark:text-light" id="usersCount">0</span>
-                    <span class="text-sm font-medium text-gray-500 dark:text-primary">Users</span>
-                  </p>
-                  <!-- Chart -->
+                  <!-- G-FDS 시각화 -->
                   <div class="relative p-4">
-                    <canvas id="activeUsersChart"></canvas>
+	                  <p class="p-4">
+	                    <div id="listDiv"></div>
+	                  </p>
                   </div>
                 </div>
-
-                <!-- Line chart card -->
-                <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Line Chart</h4>
-                    <div class="flex items-center">
-                      <button
-                        class="relative focus:outline-none"
-                        x-cloak
-                        @click="isOn = !isOn; $parent.updateLineChart()"
-                      >
-                        <div
-                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-                        ></div>
-                        <div
-                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
-                        ></div>
-                      </button>
-                    </div>
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="lineChart"></canvas>
-                  </div>
-                </div>
-              </div>
             </div>
           </main>
 
@@ -1702,9 +1638,9 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="build/js/script.js"></script>
+    <script src="build/js/script2.js"></script>
     <script>
-      const setup = () => { 
+      const setup = () => {
         const getTheme = () => {
           if (window.localStorage.getItem('dark')) {
             return JSON.parse(window.localStorage.getItem('dark'))

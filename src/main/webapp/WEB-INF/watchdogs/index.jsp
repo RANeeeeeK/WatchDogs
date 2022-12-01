@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/8280b90f2a.js" crossorigin="anonymous"></script>
    <script>
       $(document).ready(function(){
           $("#db").click(function(){
@@ -43,7 +44,7 @@
        
        $(document).ready(function(){
           $("#int").click(function(){
-              location.href="introduce";
+              location.href="diagnosis";
            });
 
        });
@@ -79,20 +80,7 @@
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
                   <span aria-hidden="true">
-                    <svg
-                      class="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                      />
-                    </svg>
+                    <i class="fa-solid fa-chart-column"></i>
                   </span>
                   <span id="db" class="ml-2 text-sm">Dashboards</span>
                  
@@ -113,20 +101,7 @@
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
                   <span aria-hidden="true">
-                    <svg
-                      class="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                      />
-                    </svg>
+                    <i class="fa-solid fa-diagram-project"></i>
                   </span>
                   <span id="fds" class="ml-2 text-sm">G-FDS</span>
                  
@@ -146,26 +121,12 @@
                   aria-haspopup="true"
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
-                  <span aria-hidden="true">
-                    <svg
-                      class="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </span>
+                <span aria-hidden="true">
+                  <i class="fa-sharp fa-solid fa-link"></i>
+                </span> 
                   <span id="blc" class="ml-2 text-sm"> BlockChain</span>
-
                 </a>
-                
+
               </div>
               <!-- introduce page -->
               <div x-data="{ isActive: false, open: false}">
@@ -180,103 +141,15 @@
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
                   <span aria-hidden="true">
-                    <svg
-                      class="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                      />
-                    </svg>
+                    <i class="fa-solid fa-stethoscope"></i>
                   </span>
-                  <span id="int" class="ml-2 text-sm">introduce</span>
+                  <span id="int" class="ml-2 text-sm">Diagnosis</span>
                  
                 </a>
               
               </div>
 
-              <!-- Authentication links -->
-              <div x-data="{ isActive: false, open: false}">
-                <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                <a
-                  href="#"
-                  @click="$event.preventDefault(); open = !open"
-                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                  :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                  role="button"
-                  aria-haspopup="true"
-                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                >
-                  <span aria-hidden="true">
-                    <svg
-                      class="w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                      />
-                    </svg>
-                  </span>
-                  <span class="ml-2 text-sm"> Authentication </span>
-                  <span aria-hidden="true" class="ml-auto">
-                    <!-- active class 'rotate-180' -->
-                    <svg
-                      class="w-4 h-4 transition-transform transform"
-                      :class="{ 'rotate-180': open }"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </span>
-                </a>
-                <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Authentication">
-                  <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                  <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                  <a
-                    href="register"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Register
-                  </a>
-                  <a
-                    href="login"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Login
-                  </a>
-                  <a
-                    href="forgot_password"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Forgot Password
-                  </a>
-                  <a
-                    href="reset_password"
-                    role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                  >
-                    Reset Password
-                  </a>
-                </div>
-              </div>
+        
 
             </nav>
 
@@ -775,33 +648,10 @@
                     </span>
                   </a>
                   <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="index.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
-                    >
-                      Default
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Project Mangement (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      E-Commerce (soon)
-                    </a>
                   </div>
                 </div>
 
-                <!-- Components links -->
+                <!-- BlockChain -->
                 <div x-data="{ isActive: false, open: false }">
                   <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                   <a
@@ -813,134 +663,9 @@
                     aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'"
                   >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                        />
-                      </svg>
-                    </span>
-                    <span class="ml-2 text-sm"> Components </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </a>
-                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Alerts (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Buttons (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Cards (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Dropdowns (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Forms (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Lists (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Modals (soon)
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Pages links -->
-                <div x-data="{ isActive: false, open: false }">
-                  <!-- active classes 'bg-primary-100 dark:bg-primary' -->
-                  <a
-                    href="#"
-                    @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                  >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </span>
+                  <i class="fa-sharp fa-solid fa-link"></i>
                     <span class="ml-2 text-sm"> BlockChain </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
+                    
                   </a>
                 </div>
 
@@ -1021,102 +746,18 @@
                   </div>
                 </div>
 
-                <!-- Layouts links -->
-                <div x-data="{ isActive: false, open: false}">
-                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                  <a
-                    href="#"
-                    @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                  >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                        />
-                      </svg>
-                    </span>
-                    <span class="ml-2 text-sm"> Layouts </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </a>
-                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Layouts">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="layouts/two-columns-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Two Columns Sidebar
-                    </a>
-                    <a
-                      href="layouts/mini-plus-one-columns-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Mini + One Columns Sidebar
-                    </a>
-                    <a
-                      href="layouts/mini-column-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Mini Column Sidebar
-                    </a>
-                  </div>
-                </div>
               </nav>
             </div>
           </header>
 
           <!-- Main content -->
           <main>
-			<!-- Content header -->
-			<div
-				class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-				<h1 class="text-2xl font-semibold">Dashboard</h1>
-				
-				<!-- 첨부파일선택 -->
-				<form id="user_csv_form" enctype="multipart/form-data">
-					<input type="file" name="user_csv"/>
-					<button type="button" id="csv_button">submit</button>
-					<div id="listDiv"></div>
-				</form>
-				
-				
-				<input type="text" id="user_adr" name="user_adr"/>
-				<button type="button" id="adr_button">submit</button>
-				
-				
+            <!-- Content header -->
+            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
+              <h1 class="text-2xl font-semibold">Dashboard</h1>
+              </div>
 
-			</div>
-
-			<!-- Content -->
+            <!-- Content -->
             <div class="mt-2">
               <!-- State cards -->
               <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
@@ -1256,7 +897,35 @@
               <!-- Charts -->
               <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
                 <!-- Bar chart card -->
-                <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
+                      <button
+                        class="relative focus:outline-none"
+                        x-cloak
+                        @click="isOn = !isOn; $parent.updateBarChart(isOn)"
+                      >
+                        <div
+                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
+                        ></div>
+                        <div
+                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
+                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
+                        >
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart"></canvas>
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
                     <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
@@ -1279,7 +948,7 @@
                   </div>
                   <!-- Chart -->
                   <div class="relative p-4 h-72">
-                    <canvas id="barChart"></canvas>
+                    <canvas id="barChart1"></canvas>
                   </div>
                 </div>
 
@@ -1310,6 +979,93 @@
                   </div>
                 </div>
               </div>
+
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
+                <!-- Bar chart card -->
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
+                      <button
+                        class="relative focus:outline-none"
+                        x-cloak
+                        @click="isOn = !isOn; $parent.updateBarChart2(isOn)"
+                      >
+                        <div
+                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
+                        ></div>
+                        <div
+                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
+                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
+                        >
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart2"></canvas>
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
+                      <button
+                        class="relative focus:outline-none"
+                        x-cloak
+                        @click="isOn = !isOn; $parent.updateBarChart3(isOn)"
+                      >
+                        <div
+                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
+                        ></div>
+                        <div
+                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
+                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
+                        ></div>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart3"></canvas>
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <div class="flex items-center space-x-2">
+                      <span class="text-sm text-gray-500 dark:text-light">Last year</span>
+                      <button
+                        class="relative focus:outline-none"
+                        x-cloak
+                        @click="isOn = !isOn; $parent.updateBarChart4(isOn)"
+                      >
+                        <div
+                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
+                        ></div>
+                        <div
+                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
+                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
+                        ></div>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart4"></canvas>
+                  </div>
+                </div>
+              </div>
+
+              
 
               <!-- Two grid columns -->
               <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
@@ -1954,14 +1710,9 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
     <script src="build/js/script.js"></script>
-    <script type="text/javascript">
-	    	    
-	</script>
-
     <script>
-      const setup = () => {
+      const setup = () => { 
         const getTheme = () => {
           if (window.localStorage.getItem('dark')) {
             return JSON.parse(window.localStorage.getItem('dark'))
@@ -2009,6 +1760,20 @@
           }
         }
 
+        const updateBarChart1 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart1.data.datasets.push(data)
+            barChart1.update()
+          } else {
+            barChart1.data.datasets.splice(1)
+            barChart1.update()
+          }
+        }
+
         const updateDoughnutChart = (on) => {
           const data = random()
           const color = 'rgb(207, 250, 254)'
@@ -2022,6 +1787,45 @@
             doughnutChart.data.datasets[0].data.splice(0, 1)
             doughnutChart.data.datasets[0].backgroundColor.splice(0, 1)
             doughnutChart.update()
+          }
+        }
+        const updateBarChart2 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart2.data.datasets.push(data)
+            barChart2.update()
+          } else {
+            barChart2.data.datasets.splice(1)
+            barChart2.update()
+          }
+        }
+        const updateBarChart3 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart3.data.datasets.push(data)
+            barChart3.update()
+          } else {
+            barChart3.data.datasets.splice(1)
+            barChart3.update()
+          }
+        }
+        const updateBarChart4 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart4.data.datasets.push(data)
+            barChart4.update()
+          } else {
+            barChart4.data.datasets.splice(1)
+            barChart4.update()
           }
         }
 

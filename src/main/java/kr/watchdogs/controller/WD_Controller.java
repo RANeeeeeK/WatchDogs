@@ -87,11 +87,11 @@ public class WD_Controller {
 		return "register"; // register.jsp
 	}
 	
-	@RequestMapping("/introduce")
+	@RequestMapping("/diagnosis")
 	public String introduce(Model model) {
-		String introduce = WD_Service.introduce();
-		model.addAttribute("introduce", introduce);
-		return "introduce"; // introduce.jsp
+		String diagnosis = WD_Service.introduce();
+		model.addAttribute("diagnosis", diagnosis);
+		return "diagnosis"; // diagnosis.jsp
 	}
 
 	@RequestMapping("/forgot_password")

@@ -41,7 +41,7 @@ public class WD_Service {
 		return "BlockChain";
 	}
 	public String introduce() {
-		return "introduce";
+		return "diagnosis";
 	}
 	public String forgot_password() {
 		return "forgot_password";
