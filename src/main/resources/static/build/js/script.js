@@ -21,7 +21,7 @@ const randomData = () => {
   ]
 }
 
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const months = ['A', 'B', 'C', 'D', 'E' ]
 
 const cssColors = (color) => {
   return getComputedStyle(document.documentElement).getPropertyValue(color)
@@ -88,99 +88,247 @@ const barChart = new Chart(document.getElementById('barChart'), {
   },
 })
 
-// address 지갑주소 연동
-$(document).ready(function(){
-	$("#adr_button").click(function(event){
-		//event.preventDefault();
-		var user_adr = $("#user_adr");
-		console.log(user_adr);
-		
-		$.ajax({
-	        url : 'http://127.0.0.1:5000/user_adr',
-	        async : true,
-	        type : 'get',
-	        data : user_adr,
-	        dataType:'json',
-			success : function(res){
-				console.log(res);
-				console.log(res.payload.address);
-				
-			},error : function(e){
-				console.log(e);
-				alert("올바른 형식의 파일을 넣어주세요.");
-			}
-	    });
-	});
-});
+const months1 = ['1', '2', '3', '4', '5' ]
 
-// 사용자 csv 첨부파일 연동 : 도넛그래프, 관계그래프
-$(document).ready(function(){
-	$("#csv_button").click(function(event){
-		//event.preventDefault();
-		var user_csv_form = $("#user_csv_form")[0];
-		var csv_form = new FormData(user_csv_form);
-		
-		$.ajax({
-	        url : 'http://127.0.0.1:5000/user_csv',
-	        async : true,
-	        type : 'post',
-	        data : csv_form,
-	        dataType:'json',
-	        cache: false,
-	        contentType : false,
-	        processData : false,
-			success : function(res){
-				
-				console.log(res);
-				const normal = [];
-				const abnormal = [];
-				for(let i = 0; i < res[0].length; i++){
-					if(res[0][i]=="0"){
-						normal.push("0");
-					}else if(res[0][i]=="1"){
-						abnormal.push("1");
-					}
-				}
-				
-				const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
-					  type: 'doughnut',
-					  data: {
-					    labels: ['normal', 'abnormal'],
-					    datasets: [
-					      {
-					        data: [normal.length, abnormal.length],
-					        backgroundColor: [colors.primary, colors.primaryLighter],
-					        hoverBackgroundColor: colors.primaryDark,
-					        borderWidth: 0,
-					        weight: 0.5,
-					      },
-					    ],
-					  },
-					  options: {
-					    responsive: true,
-					    maintainAspectRatio: false,
-					    legend: {
-					      position: 'bottom',
-					    },
+const barChart1 = new Chart(document.getElementById('barChart1'), {
+  type: 'bar',
+  data: {
+    labels: months1,
+    datasets: [
+      {
+        data: randomData(),
+        backgroundColor: colors.primary,
+        hoverBackgroundColor: colors.primaryDark,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            beginAtZero: true,
+            stepSize: 50,
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 10,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 5,
+          },
+          categoryPercentage: 0.5,
+          maxBarThickness: '10',
+        },
+      ],
+    },
+    cornerRadius: 2,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+  },
+})
 
-					    title: {
-					      display: false,
-					    },
-					    animation: {
-					      animateScale: true,
-					      animateRotate: true,
-					    },
-					  },
-					})
-				$("#listDiv").html(res[1]);
-				
-			},error : function(e){
-				console.log(e);
-				alert("올바른 형식의 파일을 넣어주세요.");
-			}
-	    });
-	});
-});
+const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['X', 'Y', 'Z'],
+    datasets: [
+      {
+        data: [random(), random(), random()],
+        backgroundColor: [colors.primary, colors.primaryLighter, colors.primaryLight],
+        hoverBackgroundColor: colors.primaryDark,
+        borderWidth: 0,
+        weight: 0.5,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'bottom',
+    },
+
+    title: {
+      display: false,
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+    },
+  },
+})
+
+const months2 = ['A', 'B', 'C', 'D', 'E' ]
+
+
+
+const barChart2 = new Chart(document.getElementById('barChart2'), {
+  type: 'bar',
+  data: {
+    labels: months2,
+    datasets: [
+      {
+        data: randomData(),
+        backgroundColor: colors.primary,
+        hoverBackgroundColor: colors.primaryDark,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            beginAtZero: true,
+            stepSize: 50,
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 10,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 5,
+          },
+          categoryPercentage: 0.5,
+          maxBarThickness: '10',
+        },
+      ],
+    },
+    cornerRadius: 2,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+  },
+})
+
+const months3 = ['A', 'B', 'C', 'D', 'E' ]
+
+
+
+const barChart3 = new Chart(document.getElementById('barChart3'), {
+  type: 'bar',
+  data: {
+    labels: months3,
+    datasets: [
+      {
+        data: randomData(),
+        backgroundColor: colors.primary,
+        hoverBackgroundColor: colors.primaryDark,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            beginAtZero: true,
+            stepSize: 50,
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 10,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 5,
+          },
+          categoryPercentage: 0.5,
+          maxBarThickness: '10',
+        },
+      ],
+    },
+    cornerRadius: 2,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+  },
+})
+
+const months4 = ['A', 'B', 'C', 'D', 'E' ]
+
+
+
+const barChart4 = new Chart(document.getElementById('barChart4'), {
+  type: 'bar',
+  data: {
+    labels: months4,
+    datasets: [
+      {
+        data: randomData(),
+        backgroundColor: colors.primary,
+        hoverBackgroundColor: colors.primaryDark,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            beginAtZero: true,
+            stepSize: 50,
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 10,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 5,
+          },
+          categoryPercentage: 0.5,
+          maxBarThickness: '10',
+        },
+      ],
+    },
+    cornerRadius: 2,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+  },
+})
+
 
 const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
   type: 'bar',
