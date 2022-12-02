@@ -973,18 +973,13 @@
 
             <!-- Content -->
             <div class="mt-2">
-              <!-- State cards -->
-              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4" >
-                
-            <iframe src="https://hub.graphistry.com/graph/graph.html?dataset=362c0fbdb2ce43ba96d7968c81286c1e&type=arrow&viztoken=8eea7719-a372-4c7a-b6e3-b82bc7daf2c3&usertag=ca178ed8-pygraphistry-0.28.5&splashAfter=1669883380&info=true&play=5000&session=498a8703c0564689a6665e415d904761"
-                    allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
-                    oallowfullscreen="true" msallowfullscreen="true"
-                    style="width:440%; height:500px; border: 1px solid #DDD; overflow: hidden"
-                    
-            >
-            </iframe>
-        
+              <!-- G-FDS 시각화 -->
+              <div class="relative p-4">
+               <p class="p-4">
+                 <div id="g_fds"></div>
+               </p>
               </div>
+            </div>
 
 	          <!-- Main footer -->
 	          <footer
@@ -1582,6 +1577,23 @@
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
     <script src="build/js/script.js"></script>
+    <script type="text/javascript">
+	 	// address 지갑주소 연동
+	    $(document).ready(function(){
+    		$.ajax({
+    	        url : 'http://127.0.0.1:5000/g_fds',
+    	        type : 'get',
+    	        dataType:'json',
+    			success : function(res){
+    				console.log(res);
+    				$("#g_fds").html(res);
+    			},error : function(e){
+    				console.log(e);
+    				alert("올바른 형식의 파일을 넣어주세요.");
+    			}
+    	    });
+	    });
+    </script>
     <script>
       const setup = () => {
         const getTheme = () => {
