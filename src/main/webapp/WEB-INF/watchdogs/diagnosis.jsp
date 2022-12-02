@@ -813,7 +813,7 @@
                   </div>
                   <!-- Chart -->
                   <div class="relative p-4 h-72">
-                    <canvas id="barChart"></canvas>
+                    <canvas id="barChart0"></canvas>
                   </div>
                 </div>
 
