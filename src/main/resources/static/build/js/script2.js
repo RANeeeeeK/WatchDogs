@@ -1,27 +1,7 @@
 // All javascript code in this project for now is just for demo DON'T RELY ON IT
 
-const random = (max = 100) => {
-  return Math.round(Math.random() * max) + 20
-}
 
-const randomData = () => {
-  return [
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-    random(),
-  ]
-}
-
-const months = ['A', 'B', 'C', 'D', 'E' ]
+const transactions = ['Normal', 'Fraud']
 
 const cssColors = (color) => {
   return getComputedStyle(document.documentElement).getPropertyValue(color)
@@ -42,10 +22,10 @@ const colors = {
 const barChart = new Chart(document.getElementById('barChart'), {
   type: 'bar',
   data: {
-    labels: months,
+    labels: transactions,
     datasets: [
       {
-        data: randomData(),
+        data: [650,50],
         backgroundColor: colors.primary,
         hoverBackgroundColor: colors.primaryDark,
       },
@@ -76,7 +56,7 @@ const barChart = new Chart(document.getElementById('barChart'), {
             padding: 5,
           },
           categoryPercentage: 0.5,
-          maxBarThickness: '10',
+          maxBarThickness: '50',
         },
       ],
     },
@@ -88,15 +68,14 @@ const barChart = new Chart(document.getElementById('barChart'), {
   },
 })
 
-const months1 = ['1', '2', '3', '4', '5' ]
 
 const barChart1 = new Chart(document.getElementById('barChart1'), {
   type: 'bar',
   data: {
-    labels: months1,
+    labels: transactions,
     datasets: [
       {
-        data: randomData(),
+        data: [650,50],
         backgroundColor: colors.primary,
         hoverBackgroundColor: colors.primaryDark,
       },
@@ -127,7 +106,7 @@ const barChart1 = new Chart(document.getElementById('barChart1'), {
             padding: 5,
           },
           categoryPercentage: 0.5,
-          maxBarThickness: '10',
+          maxBarThickness: '50',
         },
       ],
     },
@@ -171,7 +150,7 @@ $(document).ready(function(){
 				const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
 					  type: 'doughnut',
 					  data: {
-					    labels: ['normal', 'abnormal'],
+					    labels: ['normal', 'Fraud'],
 					    datasets: [
 					      {
 					        data: [normal.length, abnormal.length],
@@ -208,14 +187,11 @@ $(document).ready(function(){
 	});
 });
 
-const months2 = ['A', 'B', 'C', 'D', 'E' ]
-
-
 
 const barChart2 = new Chart(document.getElementById('barChart2'), {
   type: 'bar',
   data: {
-    labels: months2,
+    labels: transactions,
     datasets: [
       {
         data: randomData(),
@@ -249,7 +225,7 @@ const barChart2 = new Chart(document.getElementById('barChart2'), {
             padding: 5,
           },
           categoryPercentage: 0.5,
-          maxBarThickness: '10',
+          maxBarThickness: '50',
         },
       ],
     },
@@ -260,15 +236,12 @@ const barChart2 = new Chart(document.getElementById('barChart2'), {
     },
   },
 })
-
-const months3 = ['A', 'B', 'C', 'D', 'E' ]
-
 
 
 const barChart3 = new Chart(document.getElementById('barChart3'), {
   type: 'bar',
   data: {
-    labels: months3,
+    labels: transactions,
     datasets: [
       {
         data: randomData(),
@@ -302,7 +275,7 @@ const barChart3 = new Chart(document.getElementById('barChart3'), {
             padding: 5,
           },
           categoryPercentage: 0.5,
-          maxBarThickness: '10',
+          maxBarThickness: '50',
         },
       ],
     },
@@ -313,15 +286,13 @@ const barChart3 = new Chart(document.getElementById('barChart3'), {
     },
   },
 })
-
-const months4 = ['A', 'B', 'C', 'D', 'E' ]
 
 
 
 const barChart4 = new Chart(document.getElementById('barChart4'), {
   type: 'bar',
   data: {
-    labels: months4,
+    labels: transactions,
     datasets: [
       {
         data: randomData(),
@@ -355,7 +326,7 @@ const barChart4 = new Chart(document.getElementById('barChart4'), {
             padding: 5,
           },
           categoryPercentage: 0.5,
-          maxBarThickness: '10',
+          maxBarThickness: '50',
         },
       ],
     },
@@ -368,117 +339,3 @@ const barChart4 = new Chart(document.getElementById('barChart4'), {
 })
 
 
-const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
-  type: 'bar',
-  data: {
-    labels: [...randomData(), ...randomData()],
-    datasets: [
-      {
-        data: [...randomData(), ...randomData()],
-        backgroundColor: colors.primary,
-        borderWidth: 0,
-        categoryPercentage: 1,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          display: false,
-          gridLines: false,
-        },
-      ],
-      xAxes: [
-        {
-          display: false,
-          gridLines: false,
-        },
-      ],
-      ticks: {
-        padding: 10,
-      },
-    },
-    cornerRadius: 2,
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      prefix: 'Users',
-      bodySpacing: 4,
-      footerSpacing: 4,
-      hasIndicator: true,
-      mode: 'index',
-      intersect: true,
-    },
-    hover: {
-      mode: 'nearest',
-      intersect: true,
-    },
-  },
-})
-
-const lineChart = new Chart(document.getElementById('lineChart'), {
-  type: 'line',
-  data: {
-    labels: months,
-    datasets: [
-      {
-        data: randomData(),
-        fill: false,
-        borderColor: colors.primary,
-        borderWidth: 2,
-        pointRadius: 0,
-        pointHoverRadius: 0,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    scales: {
-      yAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            beginAtZero: false,
-            stepSize: 50,
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 20,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: false,
-        },
-      ],
-    },
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      hasIndicator: true,
-      intersect: false,
-    },
-  },
-})
-
-let randomUserCount = 0
-
-const usersCount = document.getElementById('usersCount')
-
-const fakeUsersCount = () => {
-  randomUserCount = random()
-  activeUsersChart.data.datasets[0].data.push(randomUserCount)
-  activeUsersChart.data.datasets[0].data.splice(0, 1)
-  activeUsersChart.update()
-  usersCount.innerText = randomUserCount
-}
-
-setInterval(() => {
-  fakeUsersCount()
-}, 1000)
