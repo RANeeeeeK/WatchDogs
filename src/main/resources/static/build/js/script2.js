@@ -19,55 +19,6 @@ const colors = {
   primaryDarker: cssColors(`--color-${getColor()}-darker`),
 }
 
-const barChart = new Chart(document.getElementById('barChart'), {
-  type: 'bar',
-  data: {
-    labels: transactions,
-    datasets: [
-      {
-        data: [650,50],
-        backgroundColor: colors.primary,
-        hoverBackgroundColor: colors.primaryDark,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            beginAtZero: true,
-            stepSize: 50,
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 10,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 5,
-          },
-          categoryPercentage: 0.5,
-          maxBarThickness: '50',
-        },
-      ],
-    },
-    cornerRadius: 2,
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-  },
-})
-
 
 const barChart1 = new Chart(document.getElementById('barChart1'), {
   type: 'bar',
@@ -177,8 +128,59 @@ $(document).ready(function(){
 					    },
 					  },
 					})
-				$("#listDiv").html(res[1]);
 				
+				
+				// 막대그래프
+					const barChart = new Chart(document.getElementById('barChart'), {
+					  type: 'bar',
+					  data: {
+					    labels: transactions,
+					    datasets: [
+					      {
+					        data: [res[1][0], res[2][0]],
+					        backgroundColor: colors.primary,
+					        hoverBackgroundColor: colors.primaryDark,
+					      },
+					    ],
+					  },
+					  options: {
+					    scales: {
+					      yAxes: [
+					        {
+					          gridLines: false,
+					          ticks: {
+					            beginAtZero: true,
+					            stepSize: 50,
+					            fontSize: 12,
+					            fontColor: '#97a4af',
+					            fontFamily: 'Open Sans, sans-serif',
+					            padding: 10,
+					          },
+					        },
+					      ],
+					      xAxes: [
+					        {
+					          gridLines: false,
+					          ticks: {
+					            fontSize: 12,
+					            fontColor: '#97a4af',
+					            fontFamily: 'Open Sans, sans-serif',
+					            padding: 5,
+					          },
+					          categoryPercentage: 0.5,
+					          maxBarThickness: '50',
+					        },
+					      ],
+					    },
+					    cornerRadius: 2,
+					    maintainAspectRatio: false,
+					    legend: {
+					      display: false,
+					    },
+					  },
+					})
+				// G-FDS 관계그래프
+				$("#listDiv").html(res[3]);					
 			},error : function(e){
 				console.log(e);
 				alert("올바른 형식의 파일을 넣어주세요.");
