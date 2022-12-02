@@ -767,9 +767,9 @@
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                     >
-                      Value
+                      AVG Value
                     </h6>
-                    <span class="text-xl font-semibold">$30,000</span>
+                    <span class="text-xl font-semibold">145</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +4.4%
                     </span>
@@ -800,9 +800,9 @@
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                     >
-                      Users
+                      Transaction
                     </h6>
-                    <span class="text-xl font-semibold">50,021</span>
+                    <span class="text-xl font-semibold">280</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +2.6%
                     </span>
@@ -833,9 +833,9 @@
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                     >
-                      Orders
+                      Balance
                     </h6>
-                    <span class="text-xl font-semibold">45,021</span>
+                    <span class="text-xl font-semibold">1,477</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +3.1%
                     </span>
@@ -866,9 +866,9 @@
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                     >
-                      Tickets
+                      Fraud
                     </h6>
-                    <span class="text-xl font-semibold">20,516</span>
+                    <span class="text-xl font-semibold">2,179</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +3.1%
                     </span>
@@ -900,7 +900,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Transactions</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -912,7 +912,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Time between First and Last (Hours)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -925,7 +925,7 @@
                 <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Doughnut Chart</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Fruad</h4>
                     <div class="flex items-center">
                       <button
                         class="relative focus:outline-none"
@@ -954,7 +954,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Ethereum Balance</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -966,7 +966,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Average Total Value</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -978,7 +978,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Max Value Received</h4>
                     
                   </div>
                   <!-- Chart -->
