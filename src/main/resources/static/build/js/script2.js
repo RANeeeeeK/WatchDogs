@@ -19,10 +19,7 @@ const colors = {
   primaryDarker: cssColors(`--color-${getColor()}-darker`),
 }
 
-
-
-
-// 사용자 csv 첨부파일 연동 : 도넛그래프, 관계그래프
+// 사용자 csv 첨부파일 연동 : 도넛,막대,관계그래프
 $(document).ready(function(){
 	$("#csv_button").click(function(event){
 		//event.preventDefault();
@@ -39,7 +36,6 @@ $(document).ready(function(){
 	        contentType : false,
 	        processData : false,
 			success : function(res){
-				
 				console.log(res);
 				const normal = [];
 				const abnormal = [];
@@ -51,6 +47,7 @@ $(document).ready(function(){
 					}
 				}
 				
+				// 도넛그래프
 				const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
 					  type: 'doughnut',
 					  data: {
@@ -82,9 +79,8 @@ $(document).ready(function(){
 					  },
 					})
 				
-				
 				// 막대그래프
-				for(let i=0; i<=4; i++){
+				for(let i = 0; i < res[1].length; i++){
 					const barChart = new Chart(document.getElementById('barChart'+i), {
 					  type: 'bar',
 					  data: {
@@ -133,10 +129,11 @@ $(document).ready(function(){
 					    },
 					  },
 					})
-					}
-					
+				}
+				
 				// G-FDS 관계그래프
-				$("#listDiv").html(res[3]);					
+				$("#listDiv").html(res[3]);
+								
 			},error : function(e){
 				console.log(e);
 				alert("올바른 형식의 파일을 넣어주세요.");
@@ -144,156 +141,3 @@ $(document).ready(function(){
 	    });
 	});
 });
-
-
-const barChart2 = new Chart(document.getElementById('barChart2'), {
-  type: 'bar',
-  data: {
-    labels: transactions,
-    datasets: [
-      {
-        data: randomData(),
-        backgroundColor: colors.primary,
-        hoverBackgroundColor: colors.primaryDark,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            beginAtZero: true,
-            stepSize: 50,
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 10,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 5,
-          },
-          categoryPercentage: 0.5,
-          maxBarThickness: '50',
-        },
-      ],
-    },
-    cornerRadius: 2,
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-  },
-})
-
-
-const barChart3 = new Chart(document.getElementById('barChart3'), {
-  type: 'bar',
-  data: {
-    labels: transactions,
-    datasets: [
-      {
-        data: randomData(),
-        backgroundColor: colors.primary,
-        hoverBackgroundColor: colors.primaryDark,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            beginAtZero: true,
-            stepSize: 50,
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 10,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 5,
-          },
-          categoryPercentage: 0.5,
-          maxBarThickness: '50',
-        },
-      ],
-    },
-    cornerRadius: 2,
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-  },
-})
-
-
-
-const barChart4 = new Chart(document.getElementById('barChart4'), {
-  type: 'bar',
-  data: {
-    labels: transactions,
-    datasets: [
-      {
-        data: randomData(),
-        backgroundColor: colors.primary,
-        hoverBackgroundColor: colors.primaryDark,
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            beginAtZero: true,
-            stepSize: 50,
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 10,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          gridLines: false,
-          ticks: {
-            fontSize: 12,
-            fontColor: '#97a4af',
-            fontFamily: 'Open Sans, sans-serif',
-            padding: 5,
-          },
-          categoryPercentage: 0.5,
-          maxBarThickness: '50',
-        },
-      ],
-    },
-    cornerRadius: 2,
-    maintainAspectRatio: false,
-    legend: {
-      display: false,
-    },
-  },
-})
-
-

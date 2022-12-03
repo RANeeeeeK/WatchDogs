@@ -1,11 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="cpath" value="${pageContext.request.contextPath}"/>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,33 +16,33 @@
    <script>
       $(document).ready(function(){
           $("#db").click(function(){
-              location.href="index";
+              location.href="index.html";
            });
 
        });
 
        $(document).ready(function(){
           $("#blc").click(function(){
-              location.href="BlockChain";
+              location.href="BlockChain.html";
            });
 
        });
        $(document).ready(function(){
           $("#fds").click(function(){
-              location.href="G_FDS";
+              location.href="G-FDS.html";
            });
 
        });
        
        $(document).ready(function(){
           $("#int").click(function(){
-              location.href="diagnosis";
+              location.href="diagnosis.html";
            });
 
        });
 
     </script>
-  </head>
+  </head> 
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
       <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
@@ -68,7 +60,7 @@
             <!-- Sidebar links -->
             <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
-              <div x-data="{ isActive: false, open: false}">
+              <div x-data="{ isActive: true, open: true}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -102,7 +94,6 @@
                 >
                   <span aria-hidden="true">
                     <i class="fa-solid fa-diagram-project"></i>
-                    </svg>
                   </span>
                   <span id="fds" class="ml-2 text-sm">G-FDS</span>
                  
@@ -111,7 +102,7 @@
               </div>
 
               <!-- BlockChain links -->
-              <div x-data="{ isActive: true, open: true }">
+              <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -122,15 +113,13 @@
                   aria-haspopup="true"
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
-                  <span aria-hidden="true">
-                    <i class="fa-sharp fa-solid fa-link"></i>
-                  </span>
+                <span aria-hidden="true">
+                  <i class="fa-sharp fa-solid fa-link"></i>
+                </span> 
                   <span id="blc" class="ml-2 text-sm"> BlockChain</span>
-
                 </a>
-                
-              </div>
 
+              </div>
               <!-- introduce page -->
               <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
@@ -146,9 +135,14 @@
                   <span aria-hidden="true">
                     <i class="fa-solid fa-stethoscope"></i>
                   </span>
-                  <span id="int" class="ml-2 text-sm">Diagnosis</span>       
-                </a>  
+                  <span id="int" class="ml-2 text-sm">Diagnosis</span>
+                 
+                </a>
+              
               </div>
+
+        
+
             </nav>
 
             <!-- Sidebar footer -->
@@ -205,7 +199,7 @@
 
               <!-- Brand -->
               <a
-                href="index"
+                href="index.html"
                 class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
               >
                 <!-- <img src="build\images\WatchDogsLogo.png" width="50px" height="50px"> -->
@@ -365,7 +359,7 @@
                     class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
                   >
                     <span class="sr-only">User menu</span>
-                    <img class="w-10 h-10 rounded-full" src="build/images/avatar.jpg" alt="Ahmed Kamel" />
+                    
                   </button>
 
                   <!-- User dropdown menu -->
@@ -646,33 +640,10 @@
                     </span>
                   </a>
                   <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="index.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
-                    >
-                      Default
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Project Mangement (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      E-Commerce (soon)
-                    </a>
                   </div>
                 </div>
 
-                <!-- Components links -->
+                <!-- BlockChain -->
                 <div x-data="{ isActive: false, open: false }">
                   <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                   <a
@@ -684,134 +655,9 @@
                     aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'"
                   >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                        />
-                      </svg>
-                    </span>
-                    <span class="ml-2 text-sm"> Components </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </a>
-                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Alerts (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Buttons (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Cards (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Dropdowns (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Forms (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Lists (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Modals (soon)
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Pages links -->
-                <div x-data="{ isActive: false, open: false }">
-                  <!-- active classes 'bg-primary-100 dark:bg-primary' -->
-                  <a
-                    href="#"
-                    @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                  >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </span>
+                  <i class="fa-sharp fa-solid fa-link"></i>
                     <span class="ml-2 text-sm"> BlockChain </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
+                    
                   </a>
                 </div>
 
@@ -892,21 +738,38 @@
                   </div>
                 </div>
 
-                <!-- Layouts links -->
-                <div x-data="{ isActive: false, open: false}">
-                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                  <a
-                    href="#"
-                    @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                  >
-                    <span aria-hidden="true">
+              </nav>
+            </div>
+          </header>
+
+          <!-- Main content -->
+          <main>
+            <!-- Content header -->
+            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
+              <h1 class="text-2xl font-semibold">Dashboard</h1>
+              </div>
+
+            <!-- Content -->
+            <div class="mt-2">
+              <!-- State cards -->
+              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
+                <!-- Value card -->
+                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                  <div>
+                    <h6
+                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    >
+                      AVG Value
+                    </h6>
+                    <span class="text-xl font-semibold">145</span>
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                      +4.4%
+                    </span>
+                  </div>
+                  <div>
+                    <span>
                       <svg
-                        class="w-5 h-5"
+                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -916,139 +779,193 @@
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                         />
                       </svg>
                     </span>
-                    <span class="ml-2 text-sm"> Layouts </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
+                  </div>
+                </div>
+
+                <!-- Users card -->
+                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                  <div>
+                    <h6
+                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    >
+                      Transaction
+                    </h6>
+                    <span class="text-xl font-semibold">280</span>
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                      +2.6%
+                    </span>
+                  </div>
+                  <div>
+                    <span>
                       <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
+                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
                       >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                        />
                       </svg>
                     </span>
-                  </a>
-                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Layouts">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="layouts/two-columns-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Two Columns Sidebar
-                    </a>
-                    <a
-                      href="layouts/mini-plus-one-columns-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Mini + One Columns Sidebar
-                    </a>
-                    <a
-                      href="layouts/mini-column-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Mini Column Sidebar
-                    </a>
                   </div>
                 </div>
-              </nav>
-            </div>
-          </header>
 
-          <!-- Main content -->
-          <main>
-            <!-- Content header -->
-            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">BlockChain</h1>
+                <!-- Orders card -->
+                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                  <div>
+                    <h6
+                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    >
+                      Balance
+                    </h6>
+                    <span class="text-xl font-semibold">1,477</span>
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                      +3.1%
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <svg
+                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Tickets card -->
+                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
+                  <div>
+                    <h6
+                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    >
+                      Fraud
+                    </h6>
+                    <span class="text-xl font-semibold">2,179</span>
+                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
+                      +3.1%
+                    </span>
+                  </div>
+                  <div>
+                    <span>
+                      <svg
+                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
               </div>
 
-            <!-- Content -->
-            <div class="mt-2">
-              <!-- State cards -->
-              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4 ">
-                <input
-                type="text"
-                id="user_adr"
-                name="user_adr"
-                class="w-full py-2 pl-10  rounded-full dark:bg-dark dark:border-transparent dark:text-light focus:outline-none focus:ring"
-                placeholder="Search..."
-              />
-              <div >
-                <button
-                  type="button"
-                  id="adr_button"
-                  class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
-                >
-                  Register
-                </button>
-                <!-- <button class="btn btn-warning mt-2 py-2 font-bold rounded-full ">Button</button> -->
+              <!-- Charts -->
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
+                <!-- Bar chart card -->
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Transactions</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart"></canvas>
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Time between First and Last (Hours)</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart1"></canvas>
+                  </div>
+                </div>
+
+                <!-- Doughnut chart card -->
+                <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Fruad</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="doughnutChart"></canvas>
+                  </div>
+                </div>
               </div>
 
-              <!-- 지갑정보 -->
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
+                <!-- Bar chart card -->
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Ethereum Balance</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart2"></canvas>
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Average Total Value</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart3"></canvas>
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Max Value Received</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-4 h-72">
+                    <canvas id="barChart4"></canvas>
+                  </div>
+                </div>
               </div>
-              <div class="grid grid-col flex items-center m-4 p-4 bg-white rounded-md dark:bg-darker">
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    지갑주소
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_1" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    잔액
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_2" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    거래횟수
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_3" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    최근거래내역
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_4" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    미확인 잔액
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_5" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-              
-            </div>
+             
           </main>
 
           <!-- Main footer -->
@@ -1646,54 +1563,9 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="build/js/script2.js"></script>
-    <script type="text/javascript">
-	 	// address 지갑주소 연동
-	    $(document).ready(function(){
-	    	$("#adr_button").click(function(event){
-	    		//event.preventDefault();
-	    		var user_adr = $("#user_adr");
-	    		console.log(user_adr);
-	    		
-	    		$.ajax({
-	    	        url : 'http://127.0.0.1:5000/user_adr',
-	    	        async : true,
-	    	        type : 'get',
-	    	        data : user_adr,
-	    	        dataType:'json',
-	    			success : function(res){
-	    				console.log(res);
-	    				console.log(res.payload.transactions[0]);
-	    				
-	    				$("#BlockInfo_1").html(res.payload.address);
-	    				$("#BlockInfo_2").html(res.payload.balance);
-	    				$("#BlockInfo_3").html(res.payload.countTransaction);
-	    				
-	    				let cnt = 0;
-	    				for(let i = 0; i < res.payload.transactions.length; i++){
-	    					if(cnt <= i){
-	    						cnt++;
-		    					div_transactions = `
-		    						<div>`+res.payload.transactions[i]+`</div>
-		    					`
-		    					$("#BlockInfo_4").append(div_transactions)
-	    					}else{
-	    						$("#BlockInfo_4").empty()
-	    					}
-	    				}
-	    				
-	    				$("#BlockInfo_5").html(res.payload.unconfirmedBalance);
-	    				
-	    			},error : function(e){
-	    				console.log(e);
-	    				alert("올바른 형식의 파일을 넣어주세요.");
-	    			}
-	    	    });
-	    	});
-	    });
-    </script>
+    <script src="build/js/script.js"></script>
     <script>
-      const setup = () => {
+      const setup = () => { 
         const getTheme = () => {
           if (window.localStorage.getItem('dark')) {
             return JSON.parse(window.localStorage.getItem('dark'))
@@ -1714,18 +1586,18 @@
         }
 
         const setColors = (color) => {
-            const root = document.documentElement
-            root.style.setProperty('--color-primary', `var(--color-cyan)`)
-            root.style.setProperty('--color-primary-50', `var(--color-cyan-50)`)
-            root.style.setProperty('--color-primary-100', `var(--color-cyan-100)`)
-            root.style.setProperty('--color-primary-light', `var(--color-cyan-light)`)
-            root.style.setProperty('--color-primary-lighter', `var(--color-cyan-lighter)`)
-            root.style.setProperty('--color-primary-dark', `var(--color-cyan-dark)`)
-            root.style.setProperty('--color-primary-darker', `var(--color-cyan-darker)`)
-            this.selectedColor = color
-            window.localStorage.setItem('color', color)
-            //
-          }
+          const root = document.documentElement
+          root.style.setProperty('--color-primary', `var(--color-${color})`)
+          root.style.setProperty('--color-primary-50', `var(--color-${color}-50)`)
+          root.style.setProperty('--color-primary-100', `var(--color-${color}-100)`)
+          root.style.setProperty('--color-primary-light', `var(--color-${color}-light)`)
+          root.style.setProperty('--color-primary-lighter', `var(--color-${color}-lighter)`)
+          root.style.setProperty('--color-primary-dark', `var(--color-${color}-dark)`)
+          root.style.setProperty('--color-primary-darker', `var(--color-${color}-darker)`)
+          this.selectedColor = color
+          window.localStorage.setItem('color', color)
+          //
+        }
 
         const updateBarChart = (on) => {
           const data = {
@@ -1738,6 +1610,20 @@
           } else {
             barChart.data.datasets.splice(1)
             barChart.update()
+          }
+        }
+
+        const updateBarChart1 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart1.data.datasets.push(data)
+            barChart1.update()
+          } else {
+            barChart1.data.datasets.splice(1)
+            barChart1.update()
           }
         }
 
@@ -1754,6 +1640,45 @@
             doughnutChart.data.datasets[0].data.splice(0, 1)
             doughnutChart.data.datasets[0].backgroundColor.splice(0, 1)
             doughnutChart.update()
+          }
+        }
+        const updateBarChart2 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart2.data.datasets.push(data)
+            barChart2.update()
+          } else {
+            barChart2.data.datasets.splice(1)
+            barChart2.update()
+          }
+        }
+        const updateBarChart3 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart3.data.datasets.push(data)
+            barChart3.update()
+          } else {
+            barChart3.data.datasets.splice(1)
+            barChart3.update()
+          }
+        }
+        const updateBarChart4 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart4.data.datasets.push(data)
+            barChart4.update()
+          } else {
+            barChart4.data.datasets.splice(1)
+            barChart4.update()
           }
         }
 
@@ -1803,9 +1728,7 @@
             this.$nextTick(() => {
               this.$refs.searchInput.focus()
             })
-          }
-          
-          ,
+          },
           isMobileSubMenuOpen: false,
           openMobileSubMenu() {
             this.isMobileSubMenuOpen = true
