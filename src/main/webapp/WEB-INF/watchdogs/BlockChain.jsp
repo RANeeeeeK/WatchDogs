@@ -1021,7 +1021,7 @@
                   <h6
                     class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                   >
-                    거래횟수
+                    해시
                   </h6>
                   <div class=" rounded-md">
                   	<span id="BlockInfo_3" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
@@ -1031,7 +1031,7 @@
                   <h6
                     class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                   >
-                    최근거래내역
+                    거래횟수
                   </h6>
                   <div class=" rounded-md">
                   	<span id="BlockInfo_4" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
@@ -1041,13 +1041,32 @@
                   <h6
                     class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                   >
-                    미확인 잔액
+                    미확인 거래수
                   </h6>
                   <div class=" rounded-md">
                   	<span id="BlockInfo_5" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
                   </div>
                 </div>
-              
+                <div>
+                  <h6
+                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                  >
+                    총 받은금액
+                  </h6>
+                  <div class=" rounded-md">
+                  	<span id="BlockInfo_6" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
+                  </div>
+                </div>
+                <div>
+                  <h6
+                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                  >
+                    총 보낸금액
+                  </h6>
+                  <div class=" rounded-md">
+                  	<span id="BlockInfo_7" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
+                  </div>
+                </div>
             </div>
           </main>
 
@@ -1663,27 +1682,37 @@
 	    	        dataType:'json',
 	    			success : function(res){
 	    				console.log(res);
-	    				console.log(res.payload.transactions[0]);
 	    				
-	    				$("#BlockInfo_1").html(res.payload.address);
-	    				$("#BlockInfo_2").html(res.payload.balance);
-	    				$("#BlockInfo_3").html(res.payload.countTransaction);
+	    				$("#BlockInfo_1").html(res.address);
 	    				
-	    				let cnt = 0;
-	    				for(let i = 0; i < res.payload.transactions.length; i++){
+	    				let num1 = res.final_balance/100000000
+	    				let balance1 = num1.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    				$("#BlockInfo_2").html(balance1+' BTC');
+	    				
+	    				$("#BlockInfo_3").html(res.hash160);
+	    				$("#BlockInfo_4").html(res.n_tx);
+	    				$("#BlockInfo_5").html(res.n_unredeemed);
+	    				
+	    				let num2 = res.total_received/100000000
+	    				let balance2 = num2.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    				$("#BlockInfo_6").html(balance2+' BTC');
+	    				
+	    				let num3 = res.total_sent/100000000
+	    				let balance3 = num3.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    				$("#BlockInfo_7").html(balance3+' BTC');
+	    				
+	    				/* let cnt = 0;
+	    				for(let i = 0; i < res.txs.input.length; i++){
 	    					if(cnt <= i){
 	    						cnt++;
 		    					div_transactions = `
-		    						<div>`+res.payload.transactions[i]+`</div>
+		    						<div>`+res.txs.input[i].prev_out[i]+`</div>
 		    					`
 		    					$("#BlockInfo_4").append(div_transactions)
 	    					}else{
 	    						$("#BlockInfo_4").empty()
 	    					}
-	    				}
-	    				
-	    				$("#BlockInfo_5").html(res.payload.unconfirmedBalance);
-	    				
+	    				} */
 	    			},error : function(e){
 	    				console.log(e);
 	    				alert("올바른 형식의 파일을 넣어주세요.");
