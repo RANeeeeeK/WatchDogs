@@ -1003,7 +1003,7 @@
                   >
                     지갑주소
                   </h6>
-                  <div class=" rounded-md">
+                  <div class="rounded-md">
                   	<span id="BlockInfo_1" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
                   </div>
                 </div>
@@ -1013,7 +1013,7 @@
                   >
                     접수된 신고수
                   </h6>
-                  <div class=" rounded-md">
+                  <div class="rounded-md">
                   	<span id="BlockInfo_2" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
                   </div>
                 </div>
@@ -1022,26 +1022,35 @@
                     class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                   >
                     Report
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;">
-						<table>
-		                  <thead>
-		                  	<tr>
-		                  		<th>신고 접수일</th>
-		                  		<th>유형</th>
-		                  		<th>내용</th>
-		                  	</tr>
-		                  </thead>
-		                  <tbody id="BlockInfo_3">
-		                  	
-		                  </tbody>
-	                  	</table>
-                  	</span>                
-                  </div>
-                  
-                </div>
-            </div>
+	             </h6>
+				<div class="rounded-md">
+					<span class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">
+						<div id="google_sectional_element" style="display: none"></div>
+						<div class="goog-trans-section">
+							<div class="goog-trans">
+								<button
+				                  type="button"
+				                  class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+				                >
+				                  <div class="goog-trans-control"></div>
+				                </button>
+							</div>
+							<table>
+								<thead>
+									<tr>
+										<th>신고 접수일</th>
+										<th>유형</th>
+										<th>내용</th>
+									</tr>
+								</thead>
+								<tbody id="BlockInfo_3">
+									 
+								</tbody>
+							</table>
+						</div>
+					</span>
+				</div>
+			</div>
           </main>
 
           <!-- Main footer -->
@@ -1640,50 +1649,76 @@
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
     <script src="build/js/script2.js"></script>
-    <script type="text/javascript">
+    <script src="//translate.google.com/translate_a/element.js?cb=googleSectionalElementInit&ug=section&hl=ko"></script>
+    
+	<script type="text/javascript">
 	 	// address 지갑주소 연동
-	    $(document).ready(function(){
-	    	$("#adr_button").click(function(event){
-	    		//event.preventDefault();
-	    		var user_adr = $("#user_adr");
-	    		console.log(user_adr);
-	    		
-	    		$.ajax({
-	    	        url : 'http://127.0.0.1:5000/user_report',
-	    	        async : true,
-	    	        type : 'get',
-	    	        data : user_adr,
-	    	        dataType:'json',
-	    			success : function(res){
-	    				console.log(res);
-	    				
-	    				$("#BlockInfo_1").html(res.address);
-	    				$("#BlockInfo_2").html(res.count);
-	    				
-	    				let cnt = 0;
-	    				for(let i = 0; i < res.recent.length; i++){
-	    					if(cnt <= i){
-	    						cnt++;
-		    					table_form = `
+	    $("#adr_button").click(function(event){
+	   		//event.preventDefault();
+	   		var user_adr = $("#user_adr");
+	   		console.log(user_adr);
+	   		
+	   		$.ajax({
+	   	        url : 'http://127.0.0.1:5000/user_report',
+	   	        async : true,
+	   	        type : 'get',
+	   	        data : user_adr,
+	   	        dataType:'json',
+	   			success : function(res){
+	   				console.log(res);
+	   				
+	   				$("#BlockInfo_1").html(res.address);
+	   				$("#BlockInfo_2").html(res.count);
+	   				
+	   				let cnt = 0;
+	   				var name;
+	   				for(let i = 0; i < res.recent.length; i++){
+	   					if(cnt <= i){
+	   						cnt++;
+	   						if ((res.recent[i].abuse_type_id)===1){
+                                name = "랜섬웨어";
+                             }else if((res.recent[i].abuse_type_id)===2){
+                                name = "암거래 시장";
+                             }else if((res.recent[i].abuse_type_id)===3){
+                                name = "비트코인 텀블러";
+                             }else if((res.recent[i].abuse_type_id)===4){
+                                name="스팸 사기";
+                             }else if((res.recent[i].abuse_type_id)===5){
+                                name="성적 착취";
+                             }else{
+                                name="other";
+                             }
+	   						
+	    					table_form = `
 			    					<tr class="rounded-md">
-				                  		<th class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
-				                  		<th class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">`+res.recent[i].created_at+`</th>
-				                  		<th class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">`+res.recent[i].description+`</th>
-			                  		</tr>
-		    					`
-		    					$("#BlockInfo_3").append(table_form)
-	    					}else{
-	    						$("#BlockInfo_3").empty()
-	    					}
-	    				}
-	    			},error : function(e){
-	    				console.log(e);
-	    				alert("올바른 형식의 파일을 넣어주세요.");
-	    			}
-	    	    });
-	    	});
-	    });
-    </script>
+				                  		<th>`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
+				                  		<th>`+name+`</th>
+				                  		<th><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
+				                  	</tr>
+	    					`
+	    					$("#BlockInfo_3").append(table_form)
+	   					}else{
+	   						$("#BlockInfo_3").empty()
+	   					}
+	   				}
+	   			},error : function(e){
+	   				console.log(e);
+	   				alert("올바른 형식의 파일을 넣어주세요.");
+	   			}
+	   	    });
+	   	});
+	</script>
+	  
+	<script>
+	    function googleSectionalElementInit() {
+	        new google.translate.SectionalElement({
+	            sectionalNodeClassName: 'goog-trans-section',
+	            controlNodeClassName: 'goog-trans-control',
+	            background: '#78E7FF'
+	        }, 'google_sectional_element');
+	    }
+	</script>
+    
     <script>
       const setup = () => {
         const getTheme = () => {

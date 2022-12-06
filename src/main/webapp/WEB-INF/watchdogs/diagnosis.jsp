@@ -21,7 +21,10 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://kit.fontawesome.com/8280b90f2a.js" crossorigin="anonymous"></script>
-   <script>
+    <script type="text/javascript" src="js/jquery.table2CSV.js"></script>
+	<script type="text/javascript" src="js/jquery.TableCSVExport.js"></script>
+	
+	<script>
       $(document).ready(function(){
           $("#db").click(function(){
               location.href="index";
@@ -49,7 +52,7 @@
 
        });
 
-    </script>
+	</script>
   </head> 
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -786,6 +789,8 @@
 
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
 			  
+			  <a href="sample_data.csv" download="sample_data.csv">파일 다운로드</a>
+			  
 			  <!-- 첨부파일선택 -->
               <form id="user_csv_form" action="/upload" method="post" enctype="multipart/form-data">
                  <input type="file" name="user_csv" class="rounded-md">
@@ -793,7 +798,7 @@
                        type="button"
                        id="csv_button"
                        class="text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none  focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
-                      style="padding: 2px 10px;">시각화</button>
+                       style="padding: 2px 10px;">시각화</button>
                      <!-- w-full -->
               </form>
             </div>
