@@ -786,22 +786,30 @@
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
               <h1 class="text-2xl font-semibold">Diagnosis</h1>
 			</div>
-
-            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-			  
-			  <a href="sample_data.csv" download="sample_data.csv">파일 다운로드</a>
-			  
-			  <!-- 첨부파일선택 -->
-              <form id="user_csv_form" action="/upload" method="post" enctype="multipart/form-data">
-                 <input type="file" name="user_csv" class="rounded-md">
-                 <button
-                       type="button"
-                       id="csv_button"
-                       class="text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none  focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
-                       style="padding: 2px 10px;">시각화</button>
-                     <!-- w-full -->
-              </form>
-            </div>
+			
+			<div class="grid grid-cols-1 space-y-8 border-b lg:gap-8 lg:space-y-0 lg:grid-cols-2 dark:border-primary-darker">
+	            <div class="flex items-center px-4 py-4 lg:py-6 dark:border-primary-darker">
+				  <a style="margin-left:5%;">sample.csv</a>
+				  <a
+				   style="padding: 2px 10px; margin-left:5%;"
+				   class="text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none  focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+				   href="sample_data.csv"
+				   download="sample_data.csv">다운로드</a>
+				</div>
+				<div class="flex items-center px-4 py-4 lg:py-6 dark:border-primary-darker">
+				  <!-- 첨부파일선택 -->
+	              <form id="user_csv_form" action="/upload" method="post" enctype="multipart/form-data"
+	                style="margin-left:30%;">
+	                 <input type="file" name="user_csv" class="rounded-md">
+	                 <button
+	                       type="button"
+	                       id="csv_button"
+	                       class="text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none  focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+	                       style="padding: 2px 10px;">시각화</button>
+	                     <!-- w-full -->
+	              </form>
+	            </div>
+	        </div>
 
             <!-- Content -->
             <div class="mt-2">
