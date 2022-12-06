@@ -46,6 +46,8 @@ public class WD_Service {
 	public String login() {
 		return "login";
 	}
-	
+	public String report() {
+		return "report";
+	}
 
 }

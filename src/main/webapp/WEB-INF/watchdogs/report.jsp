@@ -1011,7 +1011,7 @@
                   <h6
                     class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                   >
-                    잔액
+                    접수된 신고수
                   </h6>
                   <div class=" rounded-md">
                   	<span id="BlockInfo_2" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
@@ -1021,51 +1021,25 @@
                   <h6
                     class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                   >
-                    해시
+                    Report
                   </h6>
                   <div class=" rounded-md">
-                  	<span id="BlockInfo_3" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
+                  	<span class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;">
+						<table>
+		                  <thead>
+		                  	<tr>
+		                  		<th>신고 접수일</th>
+		                  		<th>유형</th>
+		                  		<th>내용</th>
+		                  	</tr>
+		                  </thead>
+		                  <tbody id="BlockInfo_3">
+		                  	
+		                  </tbody>
+	                  	</table>
+                  	</span>                
                   </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    거래횟수
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_4" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    미확인 거래수
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_5" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    총 받은금액
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_6" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
-                </div>
-                <div>
-                  <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                  >
-                    총 보낸금액
-                  </h6>
-                  <div class=" rounded-md">
-                  	<span id="BlockInfo_7" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
-                  </div>
+                  
                 </div>
             </div>
           </main>
@@ -1675,7 +1649,7 @@
 	    		console.log(user_adr);
 	    		
 	    		$.ajax({
-	    	        url : 'http://127.0.0.1:5000/user_adr',
+	    	        url : 'http://127.0.0.1:5000/user_report',
 	    	        async : true,
 	    	        type : 'get',
 	    	        data : user_adr,
@@ -1684,35 +1658,24 @@
 	    				console.log(res);
 	    				
 	    				$("#BlockInfo_1").html(res.address);
+	    				$("#BlockInfo_2").html(res.count);
 	    				
-	    				let num1 = res.final_balance/100000000
-	    				let balance1 = num1.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	    				$("#BlockInfo_2").html(balance1+' BTC');
-	    				
-	    				$("#BlockInfo_3").html(res.hash160);
-	    				$("#BlockInfo_4").html(res.n_tx);
-	    				$("#BlockInfo_5").html(res.n_unredeemed);
-	    				
-	    				let num2 = res.total_received/100000000
-	    				let balance2 = num2.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	    				$("#BlockInfo_6").html(balance2+' BTC');
-	    				
-	    				let num3 = res.total_sent/100000000
-	    				let balance3 = num3.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	    				$("#BlockInfo_7").html(balance3+' BTC'); 
-	    				
-	    				/* let cnt = 0;
-	    				for(let i = 0; i < res.txs.input.length; i++){
+	    				let cnt = 0;
+	    				for(let i = 0; i < res.recent.length; i++){
 	    					if(cnt <= i){
 	    						cnt++;
-		    					div_transactions = `
-		    						<div>`+res.txs.input[i].prev_out[i]+`</div>
+		    					table_form = `
+			    					<tr class="rounded-md">
+				                  		<th class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
+				                  		<th class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">`+res.recent[i].created_at+`</th>
+				                  		<th class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">`+res.recent[i].description+`</th>
+			                  		</tr>
 		    					`
-		    					$("#BlockInfo_4").append(div_transactions)
+		    					$("#BlockInfo_3").append(table_form)
 	    					}else{
-	    						$("#BlockInfo_4").empty()
+	    						$("#BlockInfo_3").empty()
 	    					}
-	    				} */
+	    				}
 	    			},error : function(e){
 	    				console.log(e);
 	    				alert("올바른 형식의 파일을 넣어주세요.");

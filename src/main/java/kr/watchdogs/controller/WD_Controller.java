@@ -101,7 +101,13 @@ public class WD_Controller {
 		model.addAttribute("login", login);
 		return "login"; // login.jsp
 	}
-
+	
+	@RequestMapping("/report")
+	public String report(Model model) {
+		String report = WD_Service.report();
+		model.addAttribute("report", report);
+		return "report"; // report.jsp
+	}
 	
 
 }
