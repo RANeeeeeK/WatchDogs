@@ -48,6 +48,14 @@
            });
 
        });
+       
+       $(document).ready(function(){
+           $("#rep").click(function(){
+               location.href="report";
+            });
+
+        });
+
 
     </script>
   </head> 

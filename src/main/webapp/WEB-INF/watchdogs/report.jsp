@@ -50,6 +50,7 @@
        });
 
     </script>
+    
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -110,8 +111,8 @@
               
               </div>
 
-              <!-- BlockChain links -->
-              <div x-data="{ isActive: true, open: true }">
+            <!-- Search links -->
+              <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -122,13 +123,32 @@
                   aria-haspopup="true"
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
-                  <span aria-hidden="true">
-                    <i class="fa-sharp fa-solid fa-link"></i>
-                  </span>
-                  <span id="blc" class="ml-2 text-sm"> BlockChain</span>
-
+                <span aria-hidden="true">
+                 <i class="fa-solid fa-magnifying-glass"></i>
+                </span> 
+                  <span id="blc" class="ml-2 text-sm">Search address</span>
                 </a>
-                
+
+              </div>
+              
+               <!-- Report links -->
+              <div x-data="{ isActive: false, open: false }">
+                <!-- active classes 'bg-primary-100 dark:bg-primary' -->
+                <a
+                  href="#"
+                  @click="$event.preventDefault(); open = !open"
+                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                  :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
+                  role="button"
+                  aria-haspopup="true"
+                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                >
+                <span aria-hidden="true">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span> 
+                  <span id="rep" class="ml-2 text-sm">Report details</span>
+                </a>
+
               </div>
 
               <!-- introduce page -->
@@ -1019,16 +1039,16 @@
                 </div>
                 <div>
                   <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    class="pt-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                   >
                     Report
 	             </h6>
 				<div class="rounded-md">
-					<span class="text-xl" style="color: rgb(255, 255, 255); margin-left: 15px;">
+					<span>
 						<div id="google_sectional_element" style="display: none"></div>
 						<div class="goog-trans-section">
-							<div class="goog-trans">
-								<button
+							<div class="goog-trans" style="margin-left:93%;" >
+								<button 
 				                  type="button"
 				                  class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
 				                >
@@ -1038,10 +1058,10 @@
 							<div class="pb-4"></div>
 							<table style="border-radius: 20rem;">
 		                        <thead>
-		                           <tr style="background-color: #456b8a; text-align:center; padding:10%;">
-		                              <th class="text-s font-medium" style="table-layout: fixed; width: 200px; text-align: center; ">신고 접수일</th>
-		                              <th class="text-s font-medium" style="table-layout: fixed; width: 300px; text-align: center;">유형</th>
-		                              <th class="text-s font-medium" style="table-layout: fixed; width: 800px; text-align: center;">내용</th>
+		                           <tr style="background-color: #456b8a; text-align:center;">
+		                              <th class="text-lg font-medium" style="table-layout: fixed; width: 200px; padding: 10px 30px; text-align: center;">신고 접수일</th>
+		                              <th class="text-lg font-medium" style="table-layout: fixed; width: 300px; padding: 10px 30px; text-align: center;">유형</th>
+		                              <th class="text-lg font-medium" style="table-layout: fixed; width: 800px; padding: 10px 30px; text-align: center;">내용</th>
 		                           </tr>
 		                        </thead>
 		                        <tbody id="BlockInfo_3">
@@ -1691,10 +1711,10 @@
                              }
 	   						
 	    					table_form = `
-			    					<tr class="p-4 border-b dark:border-primary">
-				                  		<th class="text-s font-medium">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
-				                  		<th class="text-s font-medium">`+name+`</th>
-				                  		<th class="text-s font-medium"><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
+			    					<tr class="border-b dark:border-primary" border-collapse: collapse;>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-medium">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-medium">`+name+`</th>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-medium"><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
 				                  	</tr>
 	    					`
 	    					$("#BlockInfo_3").append(table_form)
