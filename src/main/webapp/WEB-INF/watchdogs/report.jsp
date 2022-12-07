@@ -981,7 +981,7 @@
                 id="user_adr"
                 name="user_adr"
                 class="w-full py-2 pl-10  rounded-full dark:bg-dark dark:border-transparent dark:text-light focus:outline-none focus:ring"
-                placeholder="Search..."
+                placeholder="Search..."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
               />
               <div >
                 <button
@@ -1035,18 +1035,19 @@
 				                  <div class="goog-trans-control"></div>
 				                </button>
 							</div>
-							<table>
-								<thead>
-									<tr>
-										<th>신고 접수일</th>
-										<th>유형</th>
-										<th>내용</th>
-									</tr>
-								</thead>
-								<tbody id="BlockInfo_3">
-									 
-								</tbody>
-							</table>
+							<div class="pb-4"></div>
+							<table style="border-radius: 20rem;">
+		                        <thead>
+		                           <tr style="background-color: #456b8a; text-align:center; padding:10%;">
+		                              <th class="text-s font-medium" style="table-layout: fixed; width: 200px; text-align: center; ">신고 접수일</th>
+		                              <th class="text-s font-medium" style="table-layout: fixed; width: 300px; text-align: center;">유형</th>
+		                              <th class="text-s font-medium" style="table-layout: fixed; width: 800px; text-align: center;">내용</th>
+		                           </tr>
+		                        </thead>
+		                        <tbody id="BlockInfo_3">
+		                            
+		                        </tbody>
+		                     </table>
 						</div>
 					</span>
 				</div>
@@ -1680,7 +1681,7 @@
                              }else if((res.recent[i].abuse_type_id)===2){
                                 name = "암거래 시장";
                              }else if((res.recent[i].abuse_type_id)===3){
-                                name = "비트코인 텀블러";
+                                name = "비트코인텀블러";
                              }else if((res.recent[i].abuse_type_id)===4){
                                 name="스팸 사기";
                              }else if((res.recent[i].abuse_type_id)===5){
@@ -1690,10 +1691,10 @@
                              }
 	   						
 	    					table_form = `
-			    					<tr class="rounded-md">
-				                  		<th>`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
-				                  		<th>`+name+`</th>
-				                  		<th><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
+			    					<tr class="p-4 border-b dark:border-primary">
+				                  		<th class="text-s font-medium">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
+				                  		<th class="text-s font-medium">`+name+`</th>
+				                  		<th class="text-s font-medium"><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
 				                  	</tr>
 	    					`
 	    					$("#BlockInfo_3").append(table_form)

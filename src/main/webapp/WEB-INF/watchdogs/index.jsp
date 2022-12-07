@@ -109,7 +109,7 @@
               
               </div>
 
-              <!-- BlockChain links -->
+              <!-- Search links -->
               <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
@@ -122,12 +122,33 @@
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
                 <span aria-hidden="true">
-                  <i class="fa-sharp fa-solid fa-link"></i>
+                 <i class="fa-solid fa-magnifying-glass"></i>
                 </span> 
-                  <span id="blc" class="ml-2 text-sm"> BlockChain</span>
+                  <span id="blc" class="ml-2 text-sm">Search address</span>
                 </a>
 
               </div>
+              
+               <!-- Report links -->
+              <div x-data="{ isActive: false, open: false }">
+                <!-- active classes 'bg-primary-100 dark:bg-primary' -->
+                <a
+                  href="#"
+                  @click="$event.preventDefault(); open = !open"
+                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                  :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
+                  role="button"
+                  aria-haspopup="true"
+                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                >
+                <span aria-hidden="true">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </span> 
+                  <span id="rep" class="ml-2 text-sm">Report details</span>
+                </a>
+
+              </div>
+              
               <!-- introduce page -->
               <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
