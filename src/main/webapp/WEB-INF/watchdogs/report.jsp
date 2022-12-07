@@ -1000,10 +1000,10 @@
                 type="text"
                 id="user_adr"
                 name="user_adr"
-                class="w-full py-2 pl-10  rounded-full dark:bg-dark dark:border-transparent dark:text-light focus:outline-none focus:ring"
+               class=" w-full py-2 px-7 rounded-full dark:border-primary-darker" style="background-color: #456b8a;"
                 placeholder="Search..."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
               />
-              <div >
+              <div>
                 <button
                   type="button"
                   id="adr_button"
@@ -1013,36 +1013,45 @@
                 </button>
                 <!-- <button class="btn btn-warning mt-2 py-2 font-bold rounded-full ">Button</button> -->
               </div>
-
-              <!-- 지갑정보 -->
-              </div>
-              <div class="grid grid-col flex items-center m-4 p-4 bg-white rounded-md dark:bg-darker">
-                <div>
+             </div>
+               <!-- 지갑정보 -->
+             <div class="grid p-4 rounded-md dark:bg-darker">
+                <div class="grid p-4 grid-cols-11">
                   <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
                   >
-                    지갑주소
+                    Address
                   </h6>
-                  <div class="rounded-md">
-                  	<span id="BlockInfo_1" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a; margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_1" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
                   </div>
                 </div>
-                <div>
+                 <div class="grid p-4 grid-cols-11">
                   <h6
-                    class="pt-4 pb-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
                   >
-                    접수된 신고수
+                    Report count
                   </h6>
-                  <div class="rounded-md">
-                  	<span id="BlockInfo_2" class="text-xl " style="color: rgb(255, 255, 255); margin-left: 15px;"></span>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_2" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
                   </div>
                 </div>
-                <div>
+                </div>
+                <div class="grid px-4 pb-4 rounded-md dark:bg-darker">
+                 <div class="grid px-4 grid-cols-11">
                   <h6
-                    class="pt-4 text-s font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
                   >
                     Report
-	             </h6>
+                  </h6>
+	             </div>
 				<div class="rounded-md">
 					<span>
 						<div id="google_sectional_element" style="display: none"></div>
