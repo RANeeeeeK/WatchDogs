@@ -17,6 +17,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="build/css/tailwind.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Gothic&display=swap" rel="stylesheet" />
+    <style> @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Gothic&display=swap');</style>
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -214,7 +218,7 @@
         <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
           <!-- Navbar -->
           <header class="relative bg-white dark:bg-darker">
-            <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
+            <div class="flex items-center justify-between p-4 border-b dark:border-primary-darker">
               <!-- Mobile menu button -->
               <button
                 @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"
@@ -784,7 +788,7 @@
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
               <h1 class="text-2xl font-semibold">Dashboard</h1>
-              </div>
+            </div>
 
             <!-- Content -->
             <div class="mt-2">
@@ -795,31 +799,28 @@
                   <div>
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
+                   	  style="font-family:'Nanum Gothic';"
                     >
-                      AVG Value
+                      거래금액
                     </h6>
                     <span class="text-xl font-semibold">145</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
                       +4.4%
                     </span>
                   </div>
-                  <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
+                  <div >
+                    <span>                  
+                      <svg xmlns="http://www.w3.org/2000/svg" 
+                        class="w-12 h-12 text-gray-300 dark:text-primary-dark" 
+                        width="16" 
+                        height="16"
+                        fill="currentColor" 
+                        class="bi bi-2-circle-fill" 
+                        viewBox="0 0 16 16">
+                        <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
+                        <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"/>
                       </svg>
-                    </span>
+                   </span>
                   </div>
                 </div>
 
@@ -829,7 +830,7 @@
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                     >
-                      Transaction
+                      거래 수 
                     </h6>
                     <span class="text-xl font-semibold">280</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
@@ -862,7 +863,7 @@
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                     >
-                      Balance
+                      잔액
                     </h6>
                     <span class="text-xl font-semibold">1,477</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
@@ -870,22 +871,19 @@
                     </span>
                   </div>
                   <div>
-                    <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                        />
+                    <span>                  
+                      <svg xmlns="http://www.w3.org/2000/svg" 
+                        class="w-12 h-12 text-gray-300 dark:text-primary-dark" 
+                        width="16" 
+                        height="16"
+                        fill="currentColor" 
+                        class="bi bi-2-circle-fill" 
+                        viewBox="0 0 16 16">
+                        <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"/>
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
                       </svg>
-                    </span>
+                   </span>
                   </div>
                 </div>
 
@@ -895,7 +893,7 @@
                     <h6
                       class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
                     >
-                      Fraud
+                      이상거래 수
                     </h6>
                     <span class="text-xl font-semibold">2,179</span>
                     <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
@@ -904,19 +902,16 @@
                   </div>
                   <div>
                     <span>
-                      <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"
-                        />
+                    <span>                  
+                      <svg xmlns="http://www.w3.org/2000/svg" 
+                        class="w-12 h-12 text-gray-300 dark:text-primary-dark" 
+                        width="16" 
+                        height="16"
+                        fill="currentColor" 
+                        class="bi bi-2-circle-fill" 
+                        viewBox="0 0 16 16">
+                        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+                        <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
                       </svg>
                     </span>
                   </div>
@@ -929,7 +924,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Transactions</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 수(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -941,7 +936,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Time between First and Last (Hours)</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">누적 거래시간(Hours)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -954,7 +949,7 @@
                 <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Fruad</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">이상거래 수</h4>
                     <div class="flex items-center">
                       <button
                         class="relative focus:outline-none"
@@ -983,7 +978,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Ethereum Balance</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">잔액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -995,7 +990,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Average Total Value</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 금액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -1007,7 +1002,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Max Value Received</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">최대 받은 금액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->

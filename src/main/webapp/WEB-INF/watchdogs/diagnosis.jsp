@@ -215,7 +215,7 @@
         <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
           <!-- Navbar -->
           <header class="relative bg-white dark:bg-darker">
-            <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
+            <div class="flex items-center justify-between p-4 border-b dark:border-primary-darker">
               <!-- Mobile menu button -->
               <button
                 @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"
@@ -849,7 +849,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Transactions</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 수(AVG)</h4>
                   </div>
                   <!-- Chart -->
                   <div class="relative p-4 h-72">
@@ -860,7 +860,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Time between First and Last (Hours)</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">누적 거래시간(Hours)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -873,7 +873,7 @@
                 <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Fruad</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">이상거래 수</h4>
                   </div>
                   <!-- Chart -->
                   <div class="relative p-4 h-72">
@@ -887,7 +887,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Total Ethereum Balance</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">잔액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -899,7 +899,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Average Total Value</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 금액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -911,7 +911,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Max Value Received</h4>
+                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">최대 받은 금액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->

@@ -210,7 +210,7 @@
         <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
           <!-- Navbar -->
           <header class="relative bg-white dark:bg-darker">
-            <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
+            <div class="flex items-center justify-between p-4 border-b dark:border-primary-darker">
               <!-- Mobile menu button -->
               <button
                 @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"
@@ -996,7 +996,7 @@
           <main>
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">BlockChain</h1>
+              <h1 class="text-2xl font-semibold">Search address</h1>
               </div>
 
             <!-- Content -->

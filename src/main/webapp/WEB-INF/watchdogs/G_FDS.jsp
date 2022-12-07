@@ -209,7 +209,7 @@
         <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
           <!-- Navbar -->
           <header class="relative bg-white dark:bg-darker">
-            <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
+            <div class="flex items-center justify-between p-4 border-b dark:border-primary-darker">
               <!-- Mobile menu button -->
               <button
                 @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"

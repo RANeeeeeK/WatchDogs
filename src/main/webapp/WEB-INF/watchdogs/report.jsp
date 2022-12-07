@@ -203,7 +203,7 @@
         <div class="flex-1 h-full overflow-x-hidden overflow-y-auto">
           <!-- Navbar -->
           <header class="relative bg-white dark:bg-darker">
-            <div class="flex items-center justify-between p-2 border-b dark:border-primary-darker">
+            <div class="flex items-center justify-between p-4 border-b dark:border-primary-darker">
               <!-- Mobile menu button -->
               <button
                 @click="isMobileMainMenuOpen = !isMobileMainMenuOpen"
@@ -989,7 +989,7 @@
           <main>
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">BlockChain</h1>
+              <h1 class="text-2xl font-semibold">Report details</h1>
               </div>
 
             <!-- Content -->
@@ -1043,44 +1043,39 @@
                   </div>
                 </div>
                 </div>
-                <div class="grid px-4 pb-4 rounded-md dark:bg-darker">
-                 <div class="grid px-4 grid-cols-11">
+           <div class="grid px-4 pb-4 rounded-md dark:bg-darker">
+            <div class="rounded-md">
+               <span>
                   <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;"
-                  >
-                    Report
-                  </h6>
-	             </div>
-				<div class="rounded-md">
-					<span>
-						<div id="google_sectional_element" style="display: none"></div>
-						<div class="goog-trans-section">
-							<div class="goog-trans" style="margin-left:93%;" >
-								<button 
-				                  type="button"
-				                  class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
-				                >
-				                  <div class="goog-trans-control"></div>
-				                </button>
-							</div>
-							<div class="pb-4"></div>
-							<table style="border-radius: 20rem;">
-		                        <thead>
-		                           <tr style="background-color: #456b8a; text-align:center;">
-		                              <th class="text-lg font-medium" style="table-layout: fixed; width: 200px; padding: 10px 30px; text-align: center;">신고 접수일</th>
-		                              <th class="text-lg font-medium" style="table-layout: fixed; width: 300px; padding: 10px 30px; text-align: center;">유형</th>
-		                              <th class="text-lg font-medium" style="table-layout: fixed; width: 800px; padding: 10px 30px; text-align: center;">내용</th>
-		                           </tr>
-		                        </thead>
-		                        <tbody id="BlockInfo_3">
-		                            
-		                        </tbody>
-		                     </table>
-						</div>
-					</span>
-				</div>
-			</div>
+                  class="px-4 text-2xl font-large leading-none"
+                  style="padding-bottom: 20px; color: white; float:left; margin-right:1030px;">Report</h6>
+                  <div id="google_sectional_element" style="display: none"></div>
+                  <div class="goog-trans-section">
+                     <div class="goog-trans">
+                        <button 
+                              type="button"
+                              class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+                            >
+                              <div class="goog-trans-control"></div>
+                         </button>
+                     </div>
+                     <div class="pb-4"></div>
+                     <table style="border-radius: 20rem;">
+                              <thead>
+                                 <tr style="background-color: #456b8a; text-align:center;">
+                                    <th class="text-lg font-semibold" style="table-layout: fixed; width: 200px; padding: 10px 30px; text-align: center;">신고 접수일</th>
+                                    <th class="text-lg font-semibold" style="table-layout: fixed; width: 300px; padding: 10px 30px; text-align: center;">유형</th>
+                                    <th class="text-lg font-semibold" style="table-layout: fixed; width: 800px; padding: 10px 30px; text-align: center;">내용</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="BlockInfo_3">
+                                  
+                              </tbody>
+                           </table>
+                  </div>
+               </span>
+            </div>
+         </div>
           </main>
 
           <!-- Main footer -->
@@ -1721,9 +1716,9 @@
 	   						
 	    					table_form = `
 			    					<tr class="border-b dark:border-primary" border-collapse: collapse;>
-				                  		<th style="padding: 30px 30px;" class="text-lg font-medium">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
-				                  		<th style="padding: 30px 30px;" class="text-lg font-medium">`+name+`</th>
-				                  		<th style="padding: 30px 30px;" class="text-lg font-medium"><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold">`+name+`</th>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold"><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
 				                  	</tr>
 	    					`
 	    					$("#BlockInfo_3").append(table_form)
@@ -1737,8 +1732,9 @@
 	   			}
 	   	    });
 	   	});
+	 	
 	</script>
-	  
+	
 	<script>
 	    function googleSectionalElementInit() {
 	        new google.translate.SectionalElement({
