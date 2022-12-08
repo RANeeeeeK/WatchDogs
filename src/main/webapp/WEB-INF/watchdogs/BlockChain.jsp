@@ -119,7 +119,7 @@
               </div>
 
                <!-- Search links -->
-              <div x-data="{ isActive: false, open: false }">
+              <div x-data="{ isActive: true, open: true }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -133,7 +133,7 @@
                 <span aria-hidden="true">
                  <i class="fa-solid fa-magnifying-glass"></i>
                 </span> 
-                  <span id="blc" class="ml-2 text-sm">Search address</span>
+                  <span id="blc" class="ml-2 text-sm">Search Address</span>
                 </a>
 
               </div>
@@ -151,9 +151,12 @@
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
                 <span aria-hidden="true">
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-person-fill-exclamation" viewBox="0 0 16 16">
+                      <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+                      <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1.5a.5.5 0 0 0 1 0V11a.5.5 0 0 0-.5-.5Zm0 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z"/>
+                    </svg>
                 </span> 
-                  <span id="rep" class="ml-2 text-sm">Report details</span>
+                  <span id="rep" class="ml-2 text-sm">Report</span>
                 </a>
 
               </div>
@@ -996,7 +999,7 @@
           <main>
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">Search address</h1>
+              <h1 class="text-2xl font-semibold">Search Address</h1>
               </div>
 
             <!-- Content -->
@@ -1015,6 +1018,7 @@
                   type="button"
                   id="adr_button"
                   class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+                  style="margin-top : 4px;"
                 >
                   Register
                 </button>

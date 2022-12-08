@@ -136,7 +136,7 @@
                 <span aria-hidden="true">
                  <i class="fa-solid fa-magnifying-glass"></i>
                 </span> 
-                  <span id="blc" class="ml-2 text-sm">Search address</span>
+                  <span id="blc" class="ml-2 text-sm">Search Address</span>
                 </a>
 
               </div>
@@ -154,9 +154,12 @@
                   :aria-expanded="(open || isActive) ? 'true' : 'false'"
                 >
                 <span aria-hidden="true">
-                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-person-fill-exclamation" viewBox="0 0 16 16">
+                      <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+                      <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-3.5-2a.5.5 0 0 0-.5.5v1.5a.5.5 0 0 0 1 0V11a.5.5 0 0 0-.5-.5Zm0 4a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z"/>
+                    </svg>
                 </span> 
-                  <span id="rep" class="ml-2 text-sm">Report details</span>
+                  <span id="rep" class="ml-2 text-sm">Report</span>
                 </a>
 
               </div>
@@ -951,19 +954,7 @@
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
                     <h4 class="text-base font-semibold text-gray-500 dark:text-light">이상거래 수</h4>
                     <div class="flex items-center">
-                      <button
-                        class="relative focus:outline-none"
-                        x-cloak
-                        @click="isOn = !isOn; $parent.updateDoughnutChart(isOn)"
-                      >
-                        <div
-                          class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker"
-                        ></div>
-                        <div
-                          class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-                          :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }"
-                        ></div>
-                      </button>
+                      
                     </div>
                   </div>
                   <!-- Chart -->
