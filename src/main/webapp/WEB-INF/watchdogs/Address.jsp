@@ -22,35 +22,42 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://kit.fontawesome.com/8280b90f2a.js" crossorigin="anonymous"></script>
    <script>
-      $(document).ready(function(){
-          $("#db").click(function(){
-              location.href="index";
-           });
-
-       });
-
-       $(document).ready(function(){
-          $("#blc").click(function(){
-              location.href="BlockChain";
-           });
-
-       });
-       $(document).ready(function(){
-          $("#fds").click(function(){
-              location.href="G_FDS";
-           });
-
-       });
-       
-       $(document).ready(function(){
-          $("#int").click(function(){
-              location.href="diagnosis";
-           });
-
-       });
-
+	   $(document).ready(function(){
+	       $("#db").click(function(){
+	           location.href="Dashboard";
+	        });
+	
+	    });
+	   
+	    $(document).ready(function(){
+	       $("#fds").click(function(){
+	           location.href="G_FDS";
+	        });
+	
+	    });
+	
+	    $(document).ready(function(){
+	       $("#blc").click(function(){
+	           location.href="Address";
+	        });
+	
+	    });
+	    
+	
+	    $(document).ready(function(){
+	        $("#rep").click(function(){
+	            location.href="Report";
+	         });
+	
+	     });
+	    
+	    $(document).ready(function(){
+	       $("#int").click(function(){
+	           location.href="Diagnosis";
+	        });
+	
+	    });
     </script>
-    
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -111,8 +118,8 @@
               
               </div>
 
-            <!-- Search links -->
-              <div x-data="{ isActive: false, open: false }">
+               <!-- Search links -->
+              <div x-data="{ isActive: true, open: true }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -130,9 +137,9 @@
                 </a>
 
               </div>
-              
-               <!-- Report links -->
-              <div x-data="{ isActive: true, open: true }">
+				
+			   <!-- Report links -->
+              <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -153,7 +160,7 @@
                 </a>
 
               </div>
-
+              
               <!-- introduce page -->
               <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
@@ -992,7 +999,7 @@
           <main>
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">Report</h1>
+              <h1 class="text-2xl font-semibold">Search Address</h1>
               </div>
 
             <!-- Content -->
@@ -1003,10 +1010,10 @@
                 type="text"
                 id="user_adr"
                 name="user_adr"
-               class=" w-full py-2 px-7 rounded-full dark:border-primary-darker" style="background-color: #456b8a;"
-                placeholder="Search..."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                class=" w-full py-2 px-7 rounded-full dark:border-primary-darker" style="background-color: #456b8a;"
+                placeholder="Search..."
               />
-              <div>
+              <div >
                 <button
                   type="button"
                   id="adr_button"
@@ -1017,9 +1024,10 @@
                 </button>
                 <!-- <button class="btn btn-warning mt-2 py-2 font-bold rounded-full ">Button</button> -->
               </div>
-             </div>
-               <!-- 지갑정보 -->
-             <div class="grid p-4 rounded-md dark:bg-darker">
+
+              </div>
+              <!-- 지갑정보 -->
+              <div class="grid p-4 rounded-md dark:bg-darker">
                 <div class="grid p-4 grid-cols-11">
                   <h6
                     class="text-2xl font-large leading-none"
@@ -1033,12 +1041,12 @@
                     </div>
                   </div>
                 </div>
-                 <div class="grid p-4 grid-cols-11">
+                <div class="grid p-4 grid-cols-11">
                   <h6
                     class="text-2xl font-large leading-none"
                     style="padding-bottom: 20px; color: white; width:200px;"
                   >
-                    Report count
+                    Cash
                   </h6>
                   <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
                     <div class="text-xl" id="BlockInfo_2" style="color: rgb(255, 255, 255); margin-left: 15px;">
@@ -1046,40 +1054,72 @@
                     </div>
                   </div>
                 </div>
-                </div>
-           <div class="grid px-4 pb-4 rounded-md dark:bg-darker">
-            <div class="rounded-md">
-               <span>
+                <div class="grid p-4 grid-cols-11">
                   <h6
-                  class="px-4 text-2xl font-large leading-none"
-                  style="padding-bottom: 20px; color: white; float:left; margin-right:1030px;">Report</h6>
-                  <div id="google_sectional_element" style="display: none"></div>
-                  <div class="goog-trans-section">
-                     <div class="goog-trans">
-                        <button 
-                              type="button"
-                              class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
-                            >
-                              <div class="goog-trans-control"></div>
-                         </button>
-                     </div>
-                     <div class="pb-4"></div>
-                     <table style="border-radius: 20rem;">
-                              <thead>
-                                 <tr style="background-color: #456b8a; text-align:center;">
-                                    <th class="text-lg font-semibold" style="table-layout: fixed; width: 200px; padding: 10px 30px; text-align: center;">신고 접수일</th>
-                                    <th class="text-lg font-semibold" style="table-layout: fixed; width: 300px; padding: 10px 30px; text-align: center;">유형</th>
-                                    <th class="text-lg font-semibold" style="table-layout: fixed; width: 800px; padding: 10px 30px; text-align: center;">내용</th>
-                                 </tr>
-                              </thead>
-                              <tbody id="BlockInfo_3">
-                                  
-                              </tbody>
-                           </table>
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
+                  >
+                    Hash
+                  </h6>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_3" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
                   </div>
-               </span>
+                </div>
+                <div class="grid p-4 grid-cols-11">
+                  <h6
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
+                  >
+                   Count
+                  </h6>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_4" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="grid p-4 grid-cols-11">
+                  <h6
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
+                  >
+                    Undefined trade
+                  </h6>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_5" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="grid p-4 grid-cols-11">
+                  <h6
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;" 
+                  >
+                    Total receive
+                  </h6>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_6" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="grid p-4 grid-cols-11">
+                  <h6
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
+                  >
+                    Total sent
+                  </h6>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_7" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
+                  </div>
+                </div>
             </div>
-         </div>
           </main>
 
           <!-- Main footer -->
@@ -1678,77 +1718,61 @@
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
     <script src="build/js/script2.js"></script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleSectionalElementInit&ug=section&hl=ko"></script>
-    
-	<script type="text/javascript">
+    <script type="text/javascript">
 	 	// address 지갑주소 연동
-	    $("#adr_button").click(function(event){
-	   		//event.preventDefault();
-	   		var user_adr = $("#user_adr");
-	   		console.log(user_adr);
-	   		
-	   		$.ajax({
-	   	        url : 'http://127.0.0.1:5000/user_report',
-	   	        async : true,
-	   	        type : 'get',
-	   	        data : user_adr,
-	   	        dataType:'json',
-	   			success : function(res){
-	   				console.log(res);
-	   				
-	   				$("#BlockInfo_1").html(res.address);
-	   				$("#BlockInfo_2").html(res.count);
-	   				
-	   				let cnt = 0;
-	   				var name;
-	   				for(let i = 0; i < res.recent.length; i++){
-	   					if(cnt <= i){
-	   						cnt++;
-	   						if ((res.recent[i].abuse_type_id)===1){
-                                name = "랜섬웨어";
-                             }else if((res.recent[i].abuse_type_id)===2){
-                                name = "암거래 시장";
-                             }else if((res.recent[i].abuse_type_id)===3){
-                                name = "비트코인텀블러";
-                             }else if((res.recent[i].abuse_type_id)===4){
-                                name="스팸 사기";
-                             }else if((res.recent[i].abuse_type_id)===5){
-                                name="성적 착취";
-                             }else{
-                                name="other";
-                             }
-	   						
-	    					table_form = `
-			    					<tr class="border-b dark:border-primary" border-collapse: collapse;>
-				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
-				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold">`+name+`</th>
-				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold"><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
-				                  	</tr>
-	    					`
-	    					$("#BlockInfo_3").append(table_form)
-	   					}else{
-	   						$("#BlockInfo_3").empty()
-	   					}
-	   				}
-	   			},error : function(e){
-	   				console.log(e);
-	   				alert("올바른 형식의 파일을 넣어주세요.");
-	   			}
-	   	    });
-	   	});
-	 	
-	</script>
-	
-	<script>
-	    function googleSectionalElementInit() {
-	        new google.translate.SectionalElement({
-	            sectionalNodeClassName: 'goog-trans-section',
-	            controlNodeClassName: 'goog-trans-control',
-	            background: '#78E7FF'
-	        }, 'google_sectional_element');
-	    }
-	</script>
-    
+	    $(document).ready(function(){
+	    	$("#adr_button").click(function(event){
+	    		//event.preventDefault();
+	    		var user_adr = $("#user_adr");
+	    		console.log(user_adr);
+	    		
+	    		$.ajax({
+	    	        url : 'http://127.0.0.1:5000/user_adr',
+	    	        async : true,
+	    	        type : 'get',
+	    	        data : user_adr,
+	    	        dataType:'json',
+	    			success : function(res){
+	    				console.log(res);
+	    				
+	    				$("#BlockInfo_1").html(res.address);
+	    				
+	    				let num1 = res.final_balance/100000000
+	    				let balance1 = num1.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    				$("#BlockInfo_2").html(balance1+' BTC');
+	    				
+	    				$("#BlockInfo_3").html(res.hash160);
+	    				$("#BlockInfo_4").html(res.n_tx);
+	    				$("#BlockInfo_5").html(res.n_unredeemed);
+	    				
+	    				let num2 = res.total_received/100000000
+	    				let balance2 = num2.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    				$("#BlockInfo_6").html(balance2+' BTC');
+	    				
+	    				let num3 = res.total_sent/100000000
+	    				let balance3 = num3.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+	    				$("#BlockInfo_7").html(balance3+' BTC'); 
+	    				
+	    				/* let cnt = 0;
+	    				for(let i = 0; i < res.txs.input.length; i++){
+	    					if(cnt <= i){
+	    						cnt++;
+		    					div_transactions = `
+		    						<div>`+res.txs.input[i].prev_out[i]+`</div>
+		    					`
+		    					$("#BlockInfo_4").append(div_transactions)
+	    					}else{
+	    						$("#BlockInfo_4").empty()
+	    					}
+	    				} */
+	    			},error : function(e){
+	    				console.log(e);
+	    				alert("올바른 형식의 파일을 넣어주세요.");
+	    			}
+	    	    });
+	    	});
+	    });
+    </script>
     <script>
       const setup = () => {
         const getTheme = () => {

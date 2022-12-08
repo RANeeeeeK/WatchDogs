@@ -59,11 +59,11 @@ public class WD_Controller {
 	}
 
 	// 창 이동
-	@RequestMapping("/index")
-	public String index(Model model) {
-		String index = WD_Service.Index();
-		model.addAttribute("index", index);
-		return "index"; // index.jsp
+	@RequestMapping("/Dashboard")
+	public String Dashboard(Model model) {
+		String Dashboard = WD_Service.Dashboard();
+		model.addAttribute("Dashboard", Dashboard);
+		return "Dashboard"; // Dashboard.jsp
 	}
 
 	@RequestMapping("/G_FDS")
@@ -73,27 +73,27 @@ public class WD_Controller {
 		return "G_FDS"; // G_FDS.jsp
 	}
 
-	@RequestMapping("/BlockChain")
-	public String BlockChain(Model model) {
-		String BlockChain = WD_Service.BlockChain();
-		model.addAttribute("BlockChain", BlockChain);
-		return "BlockChain"; // BlockChain.jsp
+	@RequestMapping("/Address")
+	public String Address(Model model) {
+		String Address = WD_Service.Address();
+		model.addAttribute("Address", Address);
+		return "Address"; // Address.jsp
 	}
 
-	@RequestMapping("/register")
-	public String register(Model model) {
-		String register = WD_Service.register();
-		model.addAttribute("register", register);
-		return "register"; // register.jsp
+	@RequestMapping("/Report")
+	public String Report(Model model) {
+		String Report = WD_Service.Report();
+		model.addAttribute("Report", Report);
+		return "Report"; // Report.jsp
 	}
 	
-	@RequestMapping("/diagnosis")
-	public String introduce(Model model) {
-		String diagnosis = WD_Service.introduce();
-		model.addAttribute("diagnosis", diagnosis);
-		return "diagnosis"; // diagnosis.jsp
+	@RequestMapping("/Diagnosis")
+	public String Diagnosis(Model model) {
+		String Diagnosis = WD_Service.Diagnosis();
+		model.addAttribute("Diagnosis", Diagnosis);
+		return "Diagnosis"; // Diagnosis.jsp
 	}
-
+	
 
 	@RequestMapping("/login")
 	public String login(Model model) {
@@ -102,11 +102,11 @@ public class WD_Controller {
 		return "login"; // login.jsp
 	}
 	
-	@RequestMapping("/report")
-	public String report(Model model) {
-		String report = WD_Service.report();
-		model.addAttribute("report", report);
-		return "report"; // report.jsp
+	@RequestMapping("/register")
+	public String register(Model model) {
+		String register = WD_Service.register();
+		model.addAttribute("register", register);
+		return "register"; // register.jsp
 	}
 	
 

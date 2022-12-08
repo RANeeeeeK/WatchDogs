@@ -28,26 +28,27 @@ public class WD_Service {
 	}
 	
 	//창 이동 
-	public String register() {
-		return "register";
-	}
-	public String Index() {
-		return "index";
+	public String Dashboard() {
+		return "Dashboard";
 	}
 	public String G_FDS() {
 		return "G_FDS";
 	}
-	public String BlockChain() {
-		return "BlockChain";
+	public String Address() {
+		return "Address";
 	}
-	public String introduce() {
-		return "diagnosis";
+	public String Report() {
+		return "Report";
 	}
+	public String Diagnosis() {
+		return "Diagnosis";
+	}
+	
 	public String login() {
 		return "login";
 	}
-	public String report() {
-		return "report";
+	public String register() {
+		return "register";
 	}
 
 }

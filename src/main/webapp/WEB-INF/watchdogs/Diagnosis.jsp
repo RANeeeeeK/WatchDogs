@@ -13,9 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Watch Dogs</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Cairo:wght@200;300;400;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="build/css/tailwind.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
@@ -25,41 +27,41 @@
 	<script type="text/javascript" src="js/jquery.TableCSVExport.js"></script>
 	
 	<script>
-      $(document).ready(function(){
-          $("#db").click(function(){
-              location.href="index";
-           });
-
-       });
-
-       $(document).ready(function(){
-          $("#blc").click(function(){
-              location.href="BlockChain";
-           });
-
-       });
-       $(document).ready(function(){
-          $("#fds").click(function(){
-              location.href="G_FDS";
-           });
-
-       });
-       
-       $(document).ready(function(){
-          $("#int").click(function(){
-              location.href="diagnosis";
-           });
-
-       });
-       
-       $(document).ready(function(){
-           $("#rep").click(function(){
-               location.href="report";
-            });
-
-        });
-
-
+		$(document).ready(function(){
+		       $("#db").click(function(){
+		           location.href="Dashboard";
+		        });
+		
+		    });
+		   
+		    $(document).ready(function(){
+		       $("#fds").click(function(){
+		           location.href="G_FDS";
+		        });
+		
+		    });
+		
+		    $(document).ready(function(){
+		       $("#blc").click(function(){
+		           location.href="Address";
+		        });
+		
+		    });
+		    
+		
+		    $(document).ready(function(){
+		        $("#rep").click(function(){
+		            location.href="Report";
+		         });
+		
+		     });
+		    
+		    $(document).ready(function(){
+		       $("#int").click(function(){
+		           location.href="Diagnosis";
+		        });
+		
+		    });
 	</script>
   </head> 
   <body>
@@ -819,23 +821,23 @@
 			
 			<div class="grid grid-cols-1 space-y-8 border-b lg:gap-8 lg:space-y-0 lg:grid-cols-2 dark:border-primary-darker">
 	            <div class="flex items-center px-4 py-4 lg:py-6 dark:border-primary-darker">
-				  <a style="margin-left:5%;">sample.csv</a>
+				  <a style="margin-left:5%;"><span class="text-lg font-semibold">sample.csv</span></a>
 				  <a
 				   style="padding: 2px 10px; margin-left:5%;"
 				   class="text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none  focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
 				   href="sample_data.csv"
-				   download="sample_data.csv">다운로드</a>
+				   download="sample_data.csv"><span class="font-gothic text-sm font-semibold">다운로드</span></a>
 				</div>
 				<div class="flex items-center px-4 py-4 lg:py-6 dark:border-primary-darker">
 				  <!-- 첨부파일선택 -->
 	              <form id="user_csv_form" action="/upload" method="post" enctype="multipart/form-data"
-	                style="margin-left:30%;">
-	                 <input type="file" name="user_csv" class="rounded-md">
+	                style="margin-left:32%;">
+	                 <input type="file" name="user_csv" class="font-gothic text-sm font-semibold">
 	                 <button
 	                       type="button"
 	                       id="csv_button"
 	                       class="text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none  focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
-	                       style="padding: 2px 10px;">시각화</button>
+	                       style="padding: 2px 10px;"><span class="font-gothic text-sm font-semibold">시각화</span></button>
 	                     <!-- w-full -->
 	              </form>
 	            </div>
@@ -852,7 +854,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 수(AVG)</h4>
+                    <h4 class="font-gothic text-base font-semibold text-gray-500 dark:text-light">거래 수(AVG)</h4>
                   </div>
                   <!-- Chart -->
                   <div class="relative p-4 h-72">
@@ -863,7 +865,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">누적 거래시간(Hours)</h4>
+                    <h4 class="font-gothic text-base font-semibold text-gray-500 dark:text-light">누적 거래시간(Hours)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -876,7 +878,7 @@
                 <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">이상거래 수</h4>
+                    <h4 class="font-gothic text-base font-semibold text-gray-500 dark:text-light">이상거래 수</h4>
                   </div>
                   <!-- Chart -->
                   <div class="relative p-4 h-72">
@@ -890,7 +892,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">잔액(AVG)</h4>
+                    <h4 class="font-gothic text-base font-semibold text-gray-500 dark:text-light">잔액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -902,7 +904,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 금액(AVG)</h4>
+                    <h4 class="font-gothic text-base font-semibold text-gray-500 dark:text-light">거래 금액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->
@@ -914,7 +916,7 @@
                 <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                   <!-- Card header -->
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">최대 받은 금액(AVG)</h4>
+                    <h4 class="font-gothic text-base font-semibold text-gray-500 dark:text-light">최대 받은 금액(AVG)</h4>
                     
                   </div>
                   <!-- Chart -->

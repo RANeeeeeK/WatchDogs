@@ -13,56 +13,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Watch Dogs</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Cairo:wght@200;300;400;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="build/css/tailwind.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Gothic&display=swap" rel="stylesheet" />
-    <style> @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Gothic&display=swap');</style>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="build/css/tailwind.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://kit.fontawesome.com/8280b90f2a.js" crossorigin="anonymous"></script>
    <script>
-      $(document).ready(function(){
-          $("#db").click(function(){
-              location.href="index";
-           });
-
-       });
-
-       $(document).ready(function(){
-          $("#blc").click(function(){
-              location.href="BlockChain";
-           });
-
-       });
-       $(document).ready(function(){
-          $("#fds").click(function(){
-              location.href="G_FDS";
-           });
-
-       });
-       
-       $(document).ready(function(){
-          $("#int").click(function(){
-              location.href="diagnosis";
-           });
-
-       });
-       
-       $(document).ready(function(){
-           $("#rep").click(function(){
-               location.href="report";
-            });
-
-        });
-
-
+	   $(document).ready(function(){
+	       $("#db").click(function(){
+	           location.href="Dashboard";
+	        });
+	
+	    });
+	   
+	    $(document).ready(function(){
+	       $("#fds").click(function(){
+	           location.href="G_FDS";
+	        });
+	
+	    });
+	
+	    $(document).ready(function(){
+	       $("#blc").click(function(){
+	           location.href="Address";
+	        });
+	
+	    });
+	    
+	
+	    $(document).ready(function(){
+	        $("#rep").click(function(){
+	            location.href="Report";
+	         });
+	
+	     });
+	    
+	    $(document).ready(function(){
+	       $("#int").click(function(){
+	           location.href="Diagnosis";
+	        });
+	
+	    });
     </script>
-  </head> 
+    
+  </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
       <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
@@ -80,7 +79,7 @@
             <!-- Sidebar links -->
             <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
-              <div x-data="{ isActive: true, open: true}">
+              <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -114,6 +113,7 @@
                 >
                   <span aria-hidden="true">
                     <i class="fa-solid fa-diagram-project"></i>
+                    </svg>
                   </span>
                   <span id="fds" class="ml-2 text-sm">G-FDS</span>
                  
@@ -121,7 +121,7 @@
               
               </div>
 
-              <!-- Search links -->
+            <!-- Search links -->
               <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
@@ -142,7 +142,7 @@
               </div>
               
                <!-- Report links -->
-              <div x-data="{ isActive: false, open: false }">
+              <div x-data="{ isActive: true, open: true }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -163,7 +163,7 @@
                 </a>
 
               </div>
-              
+
               <!-- introduce page -->
               <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
@@ -179,14 +179,9 @@
                   <span aria-hidden="true">
                     <i class="fa-solid fa-stethoscope"></i>
                   </span>
-                  <span id="int" class="ml-2 text-sm">Diagnosis</span>
-                 
-                </a>
-              
+                  <span id="int" class="ml-2 text-sm">Diagnosis</span>       
+                </a>  
               </div>
-
-        
-
             </nav>
 
             <!-- Sidebar footer -->
@@ -684,10 +679,33 @@
                     </span>
                   </a>
                   <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
+                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
+                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                    <a
+                      href="index.html"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
+                    >
+                      Default
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    >
+                      Project Mangement (soon)
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    >
+                      E-Commerce (soon)
+                    </a>
                   </div>
                 </div>
 
-                <!-- BlockChain -->
+                <!-- Components links -->
                 <div x-data="{ isActive: false, open: false }">
                   <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                   <a
@@ -699,9 +717,134 @@
                     aria-haspopup="true"
                     :aria-expanded="(open || isActive) ? 'true' : 'false'"
                   >
-                  <i class="fa-sharp fa-solid fa-link"></i>
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                        />
+                      </svg>
+                    </span>
+                    <span class="ml-2 text-sm"> Components </span>
+                    <span aria-hidden="true" class="ml-auto">
+                      <!-- active class 'rotate-180' -->
+                      <svg
+                        class="w-4 h-4 transition-transform transform"
+                        :class="{ 'rotate-180': open }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
+                  </a>
+                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
+                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
+                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    >
+                      Alerts (soon)
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    >
+                      Buttons (soon)
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    >
+                      Cards (soon)
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    >
+                      Dropdowns (soon)
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    >
+                      Forms (soon)
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    >
+                      Lists (soon)
+                    </a>
+                    <a
+                      href="#"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
+                    >
+                      Modals (soon)
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Pages links -->
+                <div x-data="{ isActive: false, open: false }">
+                  <!-- active classes 'bg-primary-100 dark:bg-primary' -->
+                  <a
+                    href="#"
+                    @click="$event.preventDefault(); open = !open"
+                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                    :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
+                    role="button"
+                    aria-haspopup="true"
+                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                  >
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </span>
                     <span class="ml-2 text-sm"> BlockChain </span>
-                    
+                    <span aria-hidden="true" class="ml-auto">
+                      <!-- active class 'rotate-180' -->
+                      <svg
+                        class="w-4 h-4 transition-transform transform"
+                        :class="{ 'rotate-180': open }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </span>
                   </a>
                 </div>
 
@@ -782,68 +925,21 @@
                   </div>
                 </div>
 
-              </nav>
-            </div>
-          </header>
-
-          <!-- Main content -->
-          <main>
-            <!-- Content header -->
-            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">Dashboard</h1>
-            </div>
-
-            <!-- Content -->
-            <div class="mt-2">
-              <!-- State cards -->
-              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4">
-                <!-- Value card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                   	  style="font-family:'Nanum Gothic';"
-                    >
-                      거래금액
-                    </h6>
-                    <span class="text-xl font-semibold">145</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +4.4%
-                    </span>
-                  </div>
-                  <div >
-                    <span>                  
-                      <svg xmlns="http://www.w3.org/2000/svg" 
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark" 
-                        width="16" 
-                        height="16"
-                        fill="currentColor" 
-                        class="bi bi-2-circle-fill" 
-                        viewBox="0 0 16 16">
-                        <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1H1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>
-                        <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V5zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H3z"/>
-                      </svg>
-                   </span>
-                  </div>
-                </div>
-
-                <!-- Users card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      거래 수 
-                    </h6>
-                    <span class="text-xl font-semibold">280</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +2.6%
-                    </span>
-                  </div>
-                  <div>
-                    <span>
+                <!-- Layouts links -->
+                <div x-data="{ isActive: false, open: false}">
+                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
+                  <a
+                    href="#"
+                    @click="$event.preventDefault(); open = !open"
+                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                    :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
+                    role="button"
+                    aria-haspopup="true"
+                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                  >
+                    <span aria-hidden="true">
                       <svg
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark"
+                        class="w-5 h-5"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -853,157 +949,147 @@
                           stroke-linecap="round"
                           stroke-linejoin="round"
                           stroke-width="2"
-                          d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
                         />
                       </svg>
                     </span>
-                  </div>
-                </div>
-
-                <!-- Orders card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      잔액
-                    </h6>
-                    <span class="text-xl font-semibold">1,477</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +3.1%
-                    </span>
-                  </div>
-                  <div>
-                    <span>                  
-                      <svg xmlns="http://www.w3.org/2000/svg" 
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark" 
-                        width="16" 
-                        height="16"
-                        fill="currentColor" 
-                        class="bi bi-2-circle-fill" 
-                        viewBox="0 0 16 16">
-                        <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"/>
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
-                      </svg>
-                   </span>
-                  </div>
-                </div>
-
-                <!-- Tickets card -->
-                <div class="flex items-center justify-between p-4 bg-white rounded-md dark:bg-darker">
-                  <div>
-                    <h6
-                      class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light"
-                    >
-                      이상거래 수
-                    </h6>
-                    <span class="text-xl font-semibold">2,179</span>
-                    <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                      +3.1%
-                    </span>
-                  </div>
-                  <div>
-                    <span>
-                    <span>                  
-                      <svg xmlns="http://www.w3.org/2000/svg" 
-                        class="w-12 h-12 text-gray-300 dark:text-primary-dark" 
-                        width="16" 
-                        height="16"
-                        fill="currentColor" 
-                        class="bi bi-2-circle-fill" 
-                        viewBox="0 0 16 16">
-                        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
-                        <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
+                    <span class="ml-2 text-sm"> Layouts </span>
+                    <span aria-hidden="true" class="ml-auto">
+                      <!-- active class 'rotate-180' -->
+                      <svg
+                        class="w-4 h-4 transition-transform transform"
+                        :class="{ 'rotate-180': open }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </span>
+                  </a>
+                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Layouts">
+                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
+                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
+                    <a
+                      href="layouts/two-columns-sidebar.html"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    >
+                      Two Columns Sidebar
+                    </a>
+                    <a
+                      href="layouts/mini-plus-one-columns-sidebar.html"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    >
+                      Mini + One Columns Sidebar
+                    </a>
+                    <a
+                      href="layouts/mini-column-sidebar.html"
+                      role="menuitem"
+                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    >
+                      Mini Column Sidebar
+                    </a>
                   </div>
                 </div>
+              </nav>
+            </div>
+          </header>
+
+          <!-- Main content -->
+          <main>
+            <!-- Content header -->
+            <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
+              <h1 class="text-2xl font-semibold">Report</h1>
               </div>
 
-              <!-- Charts -->
-              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
-                <!-- Bar chart card -->
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 수(AVG)</h4>
-                    
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart"></canvas>
-                  </div>
-                </div>
-
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">누적 거래시간(Hours)</h4>
-                    
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart1"></canvas>
-                  </div>
-                </div>
-
-                <!-- Doughnut chart card -->
-                <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">이상거래 수</h4>
-                    <div class="flex items-center">
+            <!-- Content -->
+            <div class="mt-2">
+              <!-- State cards -->
+              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4 ">
+                <input
+                type="text"
+                id="user_adr"
+                name="user_adr"
+               class=" w-full py-2 px-7 rounded-full dark:border-primary-darker" style="background-color: #456b8a;"
+                placeholder="Search..."                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+              />
+              <div>
+                <button
+                  type="button"
+                  id="adr_button"
+                  class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+                  style="margin-top : 4px;"
+                >
+                  Register
+                </button>
+                <!-- <button class="btn btn-warning mt-2 py-2 font-bold rounded-full ">Button</button> -->
+              </div>
+             </div>
+               <!-- 지갑정보 -->
+             <div class="grid p-4 rounded-md dark:bg-darker">
+                <div class="grid p-4 grid-cols-11">
+                  <h6
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
+                  >
+                    Address
+                  </h6>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a; margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_1" style="color: rgb(255, 255, 255); margin-left: 15px;">
                       
                     </div>
                   </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="doughnutChart"></canvas>
+                </div>
+                 <div class="grid p-4 grid-cols-11">
+                  <h6
+                    class="text-2xl font-large leading-none"
+                    style="padding-bottom: 20px; color: white; width:200px;"
+                  >
+                    Report count
+                  </h6>
+                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
+                    <div class="text-xl" id="BlockInfo_2" style="color: rgb(255, 255, 255); margin-left: 15px;">
+                      
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
-                <!-- Bar chart card -->
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">잔액(AVG)</h4>
-                    
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart2"></canvas>
-                  </div>
                 </div>
-
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">거래 금액(AVG)</h4>
-                    
+           <div class="grid px-4 pb-4 rounded-md dark:bg-darker">
+            <div class="rounded-md">
+               <span>
+                  <h6
+                  class="px-4 text-2xl font-large leading-none"
+                  style="padding-bottom: 20px; color: white; float:left; margin-right:1030px;">Report</h6>
+                  <div id="google_sectional_element" style="display: none"></div>
+                  <div class="goog-trans-section">
+                     <div class="goog-trans">
+                        <button 
+                              type="button"
+                              class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
+                            >
+                              <div class="goog-trans-control"></div>
+                         </button>
+                     </div>
+                     <div class="pb-4"></div>
+                     <table style="border-radius: 20rem;">
+                              <thead>
+                                 <tr class="font-gothic text-lg font-semibold" style="background-color: #456b8a; text-align:center;">
+                                    <th style="table-layout: fixed; width: 200px; padding: 10px 30px; text-align: center;">신고 접수일</th>
+                                    <th style="table-layout: fixed; width: 300px; padding: 10px 30px; text-align: center;">유형</th>
+                                    <th style="table-layout: fixed; width: 800px; padding: 10px 30px; text-align: center;">내용</th>
+                                 </tr>
+                              </thead>
+                              <tbody id="BlockInfo_3">
+                                  
+                              </tbody>
+                           </table>
                   </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart3"></canvas>
-                  </div>
-                </div>
-
-                <div class="col bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
-                  <!-- Card header -->
-                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                    <h4 class="text-base font-semibold text-gray-500 dark:text-light">최대 받은 금액(AVG)</h4>
-                    
-                  </div>
-                  <!-- Chart -->
-                  <div class="relative p-4 h-72">
-                    <canvas id="barChart4"></canvas>
-                  </div>
-                </div>
-              </div>
-
+               </span>
             </div>
+         </div>
           </main>
 
           <!-- Main footer -->
@@ -1601,9 +1687,80 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="build/js/script.js"></script>
+    <script src="build/js/script2.js"></script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleSectionalElementInit&ug=section&hl=ko"></script>
+    
+	<script type="text/javascript">
+	 	// address 지갑주소 연동
+	    $("#adr_button").click(function(event){
+	   		//event.preventDefault();
+	   		var user_adr = $("#user_adr");
+	   		console.log(user_adr);
+	   		
+	   		$.ajax({
+	   	        url : 'http://127.0.0.1:5000/user_report',
+	   	        async : true,
+	   	        type : 'get',
+	   	        data : user_adr,
+	   	        dataType:'json',
+	   			success : function(res){
+	   				console.log(res);
+	   				
+	   				$("#BlockInfo_1").html(res.address);
+	   				$("#BlockInfo_2").html(res.count);
+	   				
+	   				let cnt = 0;
+	   				var name;
+	   				for(let i = 0; i < res.recent.length; i++){
+	   					if(cnt <= i){
+	   						cnt++;
+	   						if ((res.recent[i].abuse_type_id)===1){
+                                name = "랜섬웨어";
+                             }else if((res.recent[i].abuse_type_id)===2){
+                                name = "암거래 시장";
+                             }else if((res.recent[i].abuse_type_id)===3){
+                                name = "비트코인텀블러";
+                             }else if((res.recent[i].abuse_type_id)===4){
+                                name="스팸 사기";
+                             }else if((res.recent[i].abuse_type_id)===5){
+                                name="성적 착취";
+                             }else{
+                                name="other";
+                             }
+	   						
+	    					table_form = `
+			    					<tr class="font-gothic border-b dark:border-primary" border-collapse: collapse;>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold">`+(res.recent[i].created_at.substring(-1, 19)).replaceAll("T"," ")+`</th>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold">`+name+`</th>
+				                  		<th style="padding: 30px 30px;" class="text-lg font-semibold"><div id="google_translate_element_area">`+res.recent[i].description+`</div></th>
+				                  	</tr>
+	    					`
+	    					$("#BlockInfo_3").append(table_form)
+	   					}else{
+	   						$("#BlockInfo_3").empty()
+	   					}
+	   				}
+	   			},error : function(e){
+	   				console.log(e);
+	   				alert("올바른 형식의 파일을 넣어주세요.");
+	   			}
+	   	    });
+	   	});
+	 	
+	</script>
+	
+	<script>
+	    function googleSectionalElementInit() {
+	        new google.translate.SectionalElement({
+	            sectionalNodeClassName: 'goog-trans-section',
+	            controlNodeClassName: 'goog-trans-control',
+	            background: '#78E7FF'
+	        }, 'google_sectional_element');
+	    }
+	</script>
+    
     <script>
-      const setup = () => { 
+      const setup = () => {
         const getTheme = () => {
           if (window.localStorage.getItem('dark')) {
             return JSON.parse(window.localStorage.getItem('dark'))
@@ -1624,18 +1781,18 @@
         }
 
         const setColors = (color) => {
-          const root = document.documentElement
-          root.style.setProperty('--color-primary', `var(--color-cyan)`)
-          root.style.setProperty('--color-primary-50', `var(--color-cyan-50)`)
-          root.style.setProperty('--color-primary-100', `var(--color-cyan-100)`)
-          root.style.setProperty('--color-primary-light', `var(--color-cyan-light)`)
-          root.style.setProperty('--color-primary-lighter', `var(--color-cyan-lighter)`)
-          root.style.setProperty('--color-primary-dark', `var(--color-cyan-dark)`)
-          root.style.setProperty('--color-primary-darker', `var(--color-cyan-darker)`)
-          this.selectedColor = color
-          window.localStorage.setItem('color', color)
-          //
-        }
+            const root = document.documentElement
+            root.style.setProperty('--color-primary', `var(--color-cyan)`)
+            root.style.setProperty('--color-primary-50', `var(--color-cyan-50)`)
+            root.style.setProperty('--color-primary-100', `var(--color-cyan-100)`)
+            root.style.setProperty('--color-primary-light', `var(--color-cyan-light)`)
+            root.style.setProperty('--color-primary-lighter', `var(--color-cyan-lighter)`)
+            root.style.setProperty('--color-primary-dark', `var(--color-cyan-dark)`)
+            root.style.setProperty('--color-primary-darker', `var(--color-cyan-darker)`)
+            this.selectedColor = color
+            window.localStorage.setItem('color', color)
+            //
+          }
 
         const updateBarChart = (on) => {
           const data = {
@@ -1648,20 +1805,6 @@
           } else {
             barChart.data.datasets.splice(1)
             barChart.update()
-          }
-        }
-
-        const updateBarChart1 = (on) => {
-          const data = {
-            data: randomData(),
-            backgroundColor: 'rgb(207, 250, 254)',
-          }
-          if (on) {
-            barChart1.data.datasets.push(data)
-            barChart1.update()
-          } else {
-            barChart1.data.datasets.splice(1)
-            barChart1.update()
           }
         }
 
@@ -1678,45 +1821,6 @@
             doughnutChart.data.datasets[0].data.splice(0, 1)
             doughnutChart.data.datasets[0].backgroundColor.splice(0, 1)
             doughnutChart.update()
-          }
-        }
-        const updateBarChart2 = (on) => {
-          const data = {
-            data: randomData(),
-            backgroundColor: 'rgb(207, 250, 254)',
-          }
-          if (on) {
-            barChart2.data.datasets.push(data)
-            barChart2.update()
-          } else {
-            barChart2.data.datasets.splice(1)
-            barChart2.update()
-          }
-        }
-        const updateBarChart3 = (on) => {
-          const data = {
-            data: randomData(),
-            backgroundColor: 'rgb(207, 250, 254)',
-          }
-          if (on) {
-            barChart3.data.datasets.push(data)
-            barChart3.update()
-          } else {
-            barChart3.data.datasets.splice(1)
-            barChart3.update()
-          }
-        }
-        const updateBarChart4 = (on) => {
-          const data = {
-            data: randomData(),
-            backgroundColor: 'rgb(207, 250, 254)',
-          }
-          if (on) {
-            barChart4.data.datasets.push(data)
-            barChart4.update()
-          } else {
-            barChart4.data.datasets.splice(1)
-            barChart4.update()
           }
         }
 
@@ -1766,7 +1870,9 @@
             this.$nextTick(() => {
               this.$refs.searchInput.focus()
             })
-          },
+          }
+          
+          ,
           isMobileSubMenuOpen: false,
           openMobileSubMenu() {
             this.isMobileSubMenuOpen = true
