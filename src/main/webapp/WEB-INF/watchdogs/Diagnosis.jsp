@@ -180,7 +180,7 @@
                   <span aria-hidden="true">
                     <i class="fa-solid fa-stethoscope"></i>
                   </span>
-                  <span id="int" class="ml-2 text-sm">Diagnosis</span>
+                  <span id="int" class="ml-2 text-sm">Diagnoszis</span>
                  
                 </a>
      
