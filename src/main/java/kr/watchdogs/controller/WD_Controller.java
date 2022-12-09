@@ -5,8 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -52,23 +52,9 @@ public class WD_Controller {
 		WD_Member vo = WD_Service.getlogin(login);
 		session.setAttribute("vo", vo);
 		if (vo != null) {
-			return "redirect:/Dashboard";
+			return "redirect:/index";
 		} else {
 			return "redirect:/login";
-		}
-	}
-	
-	// 이용횟수 업데이트, 조회
-	@PostMapping("/use_cnt")
-	public String cnt(@RequestBody String user_id, HttpSession session) {
-		System.out.println(user_id);
-		int row = WD_Service.getcnt_update(user_id);
-		WD_Member vo = WD_Service.getcheck_id(user_id);
-		session.setAttribute("vo", vo);
-		if(row > 0) {
-			return "redirect:/Dashboard";
-		}else {
-			return null;
 		}
 	}
 
@@ -122,6 +108,11 @@ public class WD_Controller {
 		model.addAttribute("register", register);
 		return "register"; // register.jsp
 	}
-	
+	@RequestMapping("/Intro")
+	public String Intro(Model model) {
+		String Intro = WD_Service.Intro();
+		model.addAttribute("Intro", Intro);
+		return "Intro"; // login.jsp
+	}
 
 }

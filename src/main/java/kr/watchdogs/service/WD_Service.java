@@ -17,21 +17,15 @@ public class WD_Service {
 		WD_Repository.save(vo);
 	}
 	
-	// 아이디 중복체크, 이용횟수 조회
-	public WD_Member getcheck_id(String check_id) {
-		return WD_Repository.check_id(check_id);
-	}
-	
 	// 로그인
 	public WD_Member getlogin(WD_Member login) {
 		return WD_Repository.login(login.getUser_id(), login.getUser_pw());
 	}
 	
-	// 이용횟수 업데이트
-	public int getcnt_update(String user_id) {
-		return WD_Repository.cnt_update(user_id);
+	// 아이디 중복체크
+	public WD_Member getcheck_id(String check_id) {
+		return WD_Repository.check_id(check_id);
 	}
-	
 	
 	//창 이동 
 	public String Dashboard() {
@@ -55,6 +49,9 @@ public class WD_Service {
 	}
 	public String register() {
 		return "register";
+	}
+	public String Intro() {
+		return "Intro";
 	}
 
 }
