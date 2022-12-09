@@ -34,34 +34,33 @@
 		
 		    });
 		   
-		    $(document).ready(function(){
-		       $("#fds").click(function(){
-		           location.href="G_FDS";
-		        });
-		
-		    });
-		
-		    $(document).ready(function(){
-		       $("#blc").click(function(){
-		           location.href="Address";
-		        });
-		
-		    });
-		    
-		
-		    $(document).ready(function(){
-		        $("#rep").click(function(){
-		            location.href="Report";
-		         });
-		
-		     });
-		    
-		    $(document).ready(function(){
-		       $("#int").click(function(){
-		           location.href="Diagnosis";
-		        });
-		
-		    });
+	    $(document).ready(function(){
+	       $("#fds").click(function(){
+	           location.href="G_FDS";
+	        });
+	
+	    });
+	
+	    $(document).ready(function(){
+	       $("#blc").click(function(){
+	           location.href="Address";
+	        });
+	
+	    });
+	
+	    $(document).ready(function(){
+	        $("#rep").click(function(){
+	            location.href="Report";
+	         });
+	
+	     });
+	    
+	    $(document).ready(function(){
+	       $("#int").click(function(){
+	           location.href="Diagnosis";
+	        });
+	
+	    });
 	</script>
   </head> 
   <body>

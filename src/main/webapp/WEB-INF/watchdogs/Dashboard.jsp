@@ -66,6 +66,12 @@
     </script>
   </head> 
   <body>
+  	<!-- 로그인 정보 저장 -->
+	
+	<c:forEach var="vo" items="vo">
+		vo는 ${vo.User_id}
+	</c:forEach>
+  	
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
       <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
         <!-- Loading screen -->
