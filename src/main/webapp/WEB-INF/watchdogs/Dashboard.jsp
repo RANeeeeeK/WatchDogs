@@ -68,7 +68,7 @@
   <body>
   	<!-- 로그인 정보 저장 -->
 	
-	<c:forEach var="vo" items="vo">
+	<c:forEach var="vo" items="${vo}">
 		vo는 ${vo.User_id}
 	</c:forEach>
   	

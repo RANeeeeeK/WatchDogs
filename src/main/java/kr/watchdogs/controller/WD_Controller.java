@@ -52,7 +52,7 @@ public class WD_Controller {
 		WD_Member vo = WD_Service.getlogin(login);
 		session.setAttribute("vo", vo);
 		if (vo != null) {
-			return "redirect:/index";
+			return "redirect:/Dashboard";
 		} else {
 			return "redirect:/login";
 		}
