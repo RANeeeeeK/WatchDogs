@@ -1,19 +1,24 @@
-
-
+td{
+  padding: 10px;
+}
 
 :root {
   --light: #edf2f9;
   --dark: #152e4d;
   --darker: #12263f;
+  --darkk:#456b8a;
   
   /*  */
   --color-primary: var(--color-cyan);
   --color-primary-50: var(--color-cyan-50);
   --color-primary-100: var(--color-cyan-100);
   --color-primary-light: var(--color-cyan-light);
+  --color-primary-lightt: var(--color-cyan-dark);
   --color-primary-lighter: var(--color-cyan-lighter);
   --color-primary-dark: var(--color-cyan-dark);
   --color-primary-darker: var(--color-cyan-darker);
+  --color-primary-darkk: var(--color-cyan-darkk);
+
   /*  */
   --color-green: #16a34a;
   --color-green-50: #f0fdf4;
@@ -38,6 +43,8 @@
   --color-cyan-lighter: #22d3ee;
   --color-cyan-dark: #0e7490;
   --color-cyan-darker: #155e75;
+  
+  
   /*  */
   --color-teal: #0d9488;
   --color-teal-50: #f0fdfa;
@@ -62,6 +69,7 @@
   --color-violet-lighter: #a78bfa;
   --color-violet-dark: #6d28d9;
   --color-violet-darker: #5b21b6;
+  
 }
 
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
@@ -128,9 +136,13 @@ body {
 		Arial,
 		sans-serif,
 		'Apple Color Emoji',
-		'Segoe UI Emoji',
-		'Nanum Gothic', sans-serif;
+		'Segoe UI Emoji';
 }
+
+#blcfont{
+  font-family: 'Nanum Gothic';
+}
+
 /*
 Grouping content
 ================
@@ -229,6 +241,11 @@ Tabular data
 table {
   text-indent: 0; /* 1 */
   border-color: inherit; /* 2 */
+}
+
+#tbl{
+  border: 1px;
+  border: #c026d3;
 }
 
 /*
@@ -443,6 +460,12 @@ body {
  */
 
 *,
+
+
+
+
+
+
 ::before,
 ::after {
   box-sizing: border-box; /* 1 */
@@ -774,6 +797,9 @@ video {
 .dark .dark\:bg-darker {
   background-color: var(--darker);
 }
+.darkk.darkk\:bg-darkk {
+  background-color: var(--darkk);
+}
 
 .dark .dark\:bg-primary-100 {
   background-color: var(--color-primary-100);
@@ -1070,10 +1096,8 @@ video {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
-.text-8xl {
-  font-size: 4.5rem;
-  line-height: 4rem;
-}
+
+
 .text-9xl {
   font-size: 8rem;
   line-height: 1;
@@ -1529,10 +1553,6 @@ video {
   color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 
-.text-gray-1000 {
-  --tw-text-opacity: 1;
-  color: rgba(237, 237, 237, var(--tw-text-opacity));
-}
 .text-green-500 {
   --tw-text-opacity: 1;
   color: rgba(16, 185, 129, var(--tw-text-opacity));
@@ -1768,11 +1788,16 @@ video {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-11 {
+  grid-template-columns: repeat(auto-fill,minmax(100px,1fr))
+}
+
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
 
-.col-span-2 {
+.span-2 {
   grid-column: span 2 / span 2;
 }
 
@@ -2101,24 +2126,4 @@ video {
   .\32xl\:grid-cols-6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
-}
-#nav1{
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  z-index: 999;
-  transition-timing-function: ease-in;
-  transition: all 0.5s;
-}
-.nav1_right{
-  background-color: black; 
-  text-align: right; 
-  display: flex;
-
-}
-header{
-  border-bottom-width: 1px;
 }

@@ -136,15 +136,7 @@
             </div>
            </form>
           
-           <form class="space-y-6" id="log1"> 
-            <div class="nav1_right" style="padding-right: 20px;">
-              <span
-                class="text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
-              >
-               Register
-              </span>
-            </div>
-           </form>
+          
            
           </header>
 
