@@ -34,7 +34,7 @@
       >
         <!-- Brand -->
         <a
-          href="../index.html"
+          href="intro"
           class="inline-block mb-6 text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
         >
           Watch Dogs
@@ -196,7 +196,7 @@
 				// 2개(로그인, 회원가입)이기 때문에 인덱스 번호 사용해서 회원가입(두번째)에 있는 요소의 값을 가져올 것 -- 해당x
 				var check_id = $('input[name=user_id]').val();
 				console.log(check_id);
-	
+				
 				// ajax사용해서 비동기통신으로 아이디가 있는지 없는지 체크 후 결과값 받아오기
 				$.ajax({
 					// url " 어디와 통신을 할 것인가? action에 작성하는 것과 비슷함
@@ -212,7 +212,9 @@
 					success : function(result) {
 						if (result === 'find') {
 							$('#idCheck').html("아이디가 중복되었습니다");
-						} else {
+						} else if (check_id.length<7) {
+							$('#idCheck').html("아이디는 7글자 이상 입력해주세요");
+						} else{
 							$('#idCheck').html("사용가능한 아이디입니다.");
 						}
 					},
@@ -222,11 +224,11 @@
 						console.log(e)
 					}
 				})
-	
+				
 			});
 			
 		});
-		
+	
 	</script>
 
 	<script>

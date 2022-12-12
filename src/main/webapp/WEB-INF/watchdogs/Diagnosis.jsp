@@ -61,6 +61,19 @@
 	        });
 	
 	    });
+	    
+	    $(document).ready(function(){
+		       $("#logout").click(function(){
+		    	   $.ajax({
+		    			url: 'log_out',
+		    			type: 'post',
+		    			success:function(res){
+		    				alert("로그아웃 성공");
+		    				location.href="login";
+		    			}
+		    	   });
+		        });
+		    });
 	</script>
   </head> 
   <body>
@@ -241,7 +254,7 @@
 
               <!-- Brand -->
               <a
-                href="index"
+                href="Dashboard"
                 class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
               >
                 <!-- <img src="build\images\WatchDogsLogo.png" width="50px" height="50px"> -->
@@ -437,7 +450,7 @@
                       Settings
                     </a>
                     <a
-                      href="#"
+                      id="logout"
                       role="menuitem"
                       class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                     >
@@ -951,7 +964,7 @@
           <footer
             class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
           >
-            <div>Watch Dogs &copy; 2022</div>
+            <div>Watch Dogs&copy; 2022</div>
             <div>
               Made by
               123

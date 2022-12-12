@@ -33,11 +33,12 @@
       >
         <!-- Brand -->
         <a
-          href= "${cpath}/index"
+          href= "${cpath}/intro"
           class="inline-block mb-6 text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
         >
           Watch Dogs
         </a>
+        <p>${vo}</p>
         <main>
           <div class="w-full max-w-sm px-4 py-6 space-y-6 bg-white rounded-md dark:bg-darker">
             <h1 class="text-xl font-semibold text-center">Login</h1>

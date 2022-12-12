@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -37,13 +38,10 @@ public class WD_Controller {
 	public String check_id(String check_id) {
 		WD_Member vo = WD_Service.getcheck_id(check_id);
 		System.out.println(vo);
-		
 		if(vo != null) {
 			return "find";
 		}
-		
-		return null;
-		
+			return null;
 	}
 
 	// 로그인
@@ -57,6 +55,42 @@ public class WD_Controller {
 			return "redirect:/login";
 		}
 	}
+	// 로그아웃
+	@ResponseBody
+	@RequestMapping("/log_out")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "success";
+	}
+	
+	// 이용횟수 업데이트
+	@PostMapping("/use_cnt")
+	@ResponseBody
+	public String cnt(HttpSession session){
+		WD_Member vo =(WD_Member)session.getAttribute("vo");
+		int row = WD_Service.getcnt_update(vo.getUser_id());
+		vo = WD_Service.getcheck_id(vo.getUser_id());
+		session.setAttribute("vo",vo);
+		if(row > 0) {
+			return "success";
+		}else {
+			return "fale";
+		}
+	}
+	
+	// cnt 조회
+	@PostMapping("/search_cnt")
+	@ResponseBody
+	public int search_cnt(HttpSession session) {
+		WD_Member vo =(WD_Member)session.getAttribute("vo");
+		vo = WD_Service.getcheck_id(vo.getUser_id());
+		if (vo != null) {
+			return vo.getCnt();
+		} else {
+			return 0;
+		}
+	}
+	
 
 	// 창 이동
 	@RequestMapping("/Dashboard")
@@ -108,11 +142,12 @@ public class WD_Controller {
 		model.addAttribute("register", register);
 		return "register"; // register.jsp
 	}
-	@RequestMapping("/Intro")
-	public String Intro(Model model) {
-		String Intro = WD_Service.Intro();
-		model.addAttribute("Intro", Intro);
-		return "Intro"; // login.jsp
+	
+	@RequestMapping("/intro")
+	public String intro(Model model) {
+		String intro = WD_Service.intro();
+		model.addAttribute("intro", intro);
+		return "intro"; // intro.jsp
 	}
 
 }

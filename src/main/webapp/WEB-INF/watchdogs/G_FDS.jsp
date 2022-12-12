@@ -57,6 +57,19 @@
 	        });
 	
 	    });
+	    
+	    $(document).ready(function(){
+		       $("#logout").click(function(){
+		    	   $.ajax({
+		    			url: 'log_out',
+		    			type: 'post',
+		    			success:function(res){
+		    				alert("로그아웃 성공");
+		    				location.href="login";
+		    			}
+		    	   });
+		        });
+		    });
     </script>
   </head>
   <body>
@@ -234,7 +247,7 @@
 
               <!-- Brand -->
               <a
-                href="index"
+                href="Dashboard"
                 class="inline-block text-2xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
               >
                 <!-- <img src="build\images\WatchDogsLogo.png" width="50px" height="50px"> -->
@@ -430,7 +443,7 @@
                       Settings
                     </a>
                     <a
-                      href="#"
+                      id="logout"
                       role="menuitem"
                       class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                     >
@@ -1006,7 +1019,13 @@
               <!-- G-FDS 시각화 -->
               <div class="relative p-4">
                <p class="p-4">
-                 <div id="g_fds"></div>
+                <iframe id="1e23fd2f-9c22-481c-87e4-9a70a144ff59" src="https://hub.graphistry.com/graph/graph.html?dataset=f00e71a57ffe43f389b9a919db0d75f8"
+                    allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
+                    oallowfullscreen="true" msallowfullscreen="true"
+                    style="width:100%; height:500px; border: 1px solid #DDD; overflow: hidden"
+                    
+            >
+            </iframe>
                </p>
               </div>
             </div>
@@ -1609,7 +1628,7 @@
     <script src="build/js/script.js"></script>
     <script type="text/javascript">
 	 	// address 지갑주소 연동
-	    $(document).ready(function(){
+	   /*  $(document).ready(function(){
     		$.ajax({
     	        url : 'http://127.0.0.1:5000/g_fds',
     	        type : 'get',
@@ -1622,7 +1641,12 @@
     				alert("올바른 형식의 파일을 넣어주세요.");
     			}
     	    });
-	    });
+	    }); */
+    </script>
+    <script>
+      try {
+        $("#1e23fd2f-9c22-481c-87e4-9a70a144ff59").bind('mousewheel', function(e) { e.preventDefault(); });
+      } catch (e) { console.error('exn catching scroll', e); }
     </script>
     <script>
       const setup = () => {

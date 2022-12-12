@@ -14,11 +14,26 @@
     href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Cairo:wght@200;300;400;600;700;900&display=swap"
     rel="stylesheet"
   />
-  
+  	<script src="http://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" href="build/css/tailwind.css" />
     <link rel="stylesheet" href="build/css/test.css" />
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script>
+    $(document).ready(function(){
+	       $("#log").click(function(){
+	           location.href="login";
+	        });
+	
+	    });
+    
+    $(document).ready(function(){
+	       $("#log1").click(function(){
+	           location.href="register";
+	        });
+	
+	    });
+    </script>
   </head>
   <body>
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
@@ -111,21 +126,26 @@
                 </div>
               </nav>
             </div>
-            <form action="${cpath}/login" method="post" class="space-y-6">
+            <form class="space-y-6" id="log"> 
             <div class="nav1_right" style="padding-right: 20px;">
-             <button 
-             	type="submit"
-            	id="log"
+              <span
                 class="text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
               >
                Login
-              
-              </button>
+              </span>
             </div>
            </form>
-         
-              
-             
+          
+           <form class="space-y-6" id="log1"> 
+            <div class="nav1_right" style="padding-right: 20px;">
+              <span
+                class="text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
+              >
+               Register
+              </span>
+            </div>
+           </form>
+           
           </header>
 
           
@@ -271,7 +291,7 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="build/js/script.js"></script>
+    
     <script>
       const setup = () => {
         const getTheme = () => {
@@ -418,16 +438,7 @@
           nav1.classList.remove('nav__black');
         }
       });
-	//로그인 페이지 이동
-	$(document).ready(function(){
-	       $("#log").click(function(){
-	           location.href="login";
-	        });
-	
-	    });
-	
-	
-
+   //로그인 페이지 이동
 
     
 
