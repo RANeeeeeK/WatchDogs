@@ -27,12 +27,12 @@
 	
 	    });
     
-    $(document).ready(function(){
+    /* $(document).ready(function(){
 	       $("#log1").click(function(){
 	           location.href="register";
 	        });
 	
-	    });
+	    }); */
     </script>
   </head>
   <body>
@@ -53,7 +53,7 @@
         <div class="border:1; flex-1 h-full overflow-x-hidden overflow-y-auto" style=" background-color: black; border-bottom: 1px; border-color: white;">
           <!-- Navbar -->
         
-          <header id= nav1 class=" justify-between relative bg-white dark:bg-darker " style="background-color: black;">
+          <header id= nav1 class=" justify-between relative bg-white dark:bg-darker " style="background-color: black; border-color: #16cae2;">
           <!-- Brand -->
               <a
                 class="inline-block text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
@@ -151,7 +151,7 @@
               <!-- Charts -->
               <div class="grid p-4 ml-4 lg:grid-cols-2" style="background-color: black;">
                 <!-- Bar chart card -->
-                <div class="bg-white rounded-md" style="background-color:black ; padding-top: 100px; padding-left: 40px;">
+                <div class="bg-white rounded-md" style="background-color:black ; padding-top: 200px; padding-left: 40px;">
                 
                   <!-- Chart -->
                   <h4 class="text-8xl font-bold text-gray-1000 dark:text-light">BlockChain</h4>
@@ -162,7 +162,7 @@
                 </div>
 
                 <!-- Doughnut chart card -->
-                <div class="bg-white rounded-md" style="padding-left:50px; background-color: black;" >
+                <div class="bg-white rounded-md" style="padding-left:50px; padding-top:100px; background-color: black;" >
                   <img src="./build/images/jel.jpg" width="600px" height="450px">
                 
                 </div>
@@ -254,7 +254,7 @@
                   <!-- Chart -->
                   <h4 class="text-8xl font-bold text-gray-500 dark:text-light" style="padding-left: 40px;">지갑 조회</h4>
                   <h4 class="text-xl pt-4 font-light text-gray-500 dark:text-light" style="padding-top:40px; padding-left: 40px; color: rgb(215, 214, 214)">모든 분석 요구 사항을 충족하는 상호 조작 및 재구성을 통해</h4>
-                  <h4 class="text-xl font-light text-gray-500 dark:text-light" style="padding-top:5px;padding-left: 40px; color: rgb(215, 214, 214)">다양한 그래프 토폴로지 및 레이아웃과 상호적이고 직관적인 지갑정보를 제공합니다.</h4>
+                  <h4 class="text-xl font-light text-gray-500 dark:text-light" style="padding-top:5px;padding-left: 40px; color: rgb(215, 214, 214)">그래프 토폴로지 및 레이아웃과 상호적이고 직관적인 지갑정보를 제공합니다.</h4>
                 </div>
 
                 <!-- Doughnut chart card -->
