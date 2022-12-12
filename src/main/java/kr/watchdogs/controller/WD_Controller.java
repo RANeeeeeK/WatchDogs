@@ -149,5 +149,12 @@ public class WD_Controller {
 		model.addAttribute("intro", intro);
 		return "intro"; // intro.jsp
 	}
+	
+	@RequestMapping("/Subcribe")
+	public String Subcribe(Model model) {
+		String Subcribe = WD_Service.Subcribe();
+		model.addAttribute("Subcribe", Subcribe);
+		return "Subcribe"; // Subcribe.jsp
+	}
 
 }

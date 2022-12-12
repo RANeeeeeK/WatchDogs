@@ -13,10 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Watch Dogs</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Cairo:wght@200;300;400;600;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="build/css/tailwind.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Gothic&display=swap" rel="stylesheet" />
+    <style> @import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Gothic&display=swap');</style>
     <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -79,8 +85,10 @@
 		
 		    });
     </script>
-  </head>
+  </head> 
   <body>
+  	<!-- 로그인 정보 저장 -->
+	
     <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
       <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
         <!-- Loading screen -->
@@ -131,7 +139,6 @@
                 >
                   <span aria-hidden="true">
                     <i class="fa-solid fa-diagram-project"></i>
-                    </svg>
                   </span>
                   <span id="fds" class="ml-2 text-sm">G-FDS</span>
                  
@@ -139,8 +146,8 @@
               
               </div>
 
-               <!-- Search links -->
-              <div x-data="{ isActive: true, open: true }">
+              <!-- Search links -->
+              <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -158,8 +165,8 @@
                 </a>
 
               </div>
-				
-			   <!-- Report links -->
+              
+               <!-- Report links -->
               <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                 <a
@@ -197,12 +204,13 @@
                   <span aria-hidden="true">
                     <i class="fa-solid fa-stethoscope"></i>
                   </span>
-                  <span id="int" class="ml-2 text-sm">Diagnosis</span>       
-                </a>  
-              </div>
+                  <span id="int" class="ml-2 text-sm">Diagnosis</span>
+                 
+                </a>
               
-              <!-- 구독페이지 -->
-        	<div x-data="{ isActive: false, open: false}">
+              </div>
+	 		<!-- 구독페이지 -->
+        	<div x-data="{ isActive: true, open: true}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="#"
@@ -227,6 +235,7 @@
                 </a>
               
               </div>
+
             </nav>
 
             <!-- Sidebar footer -->
@@ -289,6 +298,7 @@
                 <!-- <img src="build\images\WatchDogsLogo.png" width="50px" height="50px"> -->
                 Watch Dogs
               </a>
+
 
               <!-- Mobile sub menu button -->
               <button
@@ -479,7 +489,7 @@
                       Settings
                     </a>
                     <a
-                      id="logout"
+                      href="#"
                       role="menuitem"
                       class="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                     >
@@ -724,131 +734,10 @@
                     </span>
                   </a>
                   <div role="menu" x-show="open" class="mt-2 space-y-2 px-7" aria-label="Dashboards">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="index.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-700 transition-colors duration-200 rounded-md dark:text-light dark:hover:text-light hover:text-gray-700"
-                    >
-                      Default
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Project Mangement (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      E-Commerce (soon)
-                    </a>
                   </div>
                 </div>
 
-                <!-- Components links -->
-                <div x-data="{ isActive: false, open: false }">
-                  <!-- active classes 'bg-primary-100 dark:bg-primary' -->
-                  <a
-                    href="#"
-                    @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                  >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                        />
-                      </svg>
-                    </span>
-                    <span class="ml-2 text-sm"> Components </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </a>
-                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" arial-label="Components">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Alerts (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Buttons (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Cards (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Dropdowns (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Forms (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Lists (soon)
-                    </a>
-                    <a
-                      href="#"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Modals (soon)
-                    </a>
-                  </div>
-                </div>
-
-                <!-- Pages links -->
+                <!-- BlockChain -->
                 <div x-data="{ isActive: false, open: false }">
                   <!-- active classes 'bg-primary-100 dark:bg-primary' -->
                   <a
@@ -893,152 +782,8 @@
                   </a>
                 </div>
 
-                <!-- Authentication links -->
-                <div x-data="{ isActive: false, open: false}">
-                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                  <a
-                    href="#"
-                    @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                  >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
-                      </svg>
-                    </span>
-                    <span class="ml-2 text-sm"> Authentication </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </a>
-                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Authentication">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="auth/register.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Register
-                    </a>
-                    <a
-                      href="auth/login.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Login
-                    </a>
-                    <a
-                      href="auth/forgot-password.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Forgot Password
-                    </a>
-                    <a
-                      href="auth/reset-password.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700"
-                    >
-                      Reset Password
-                    </a>
-                  </div>
-                </div>
+                
 
-                <!-- Layouts links -->
-                <div x-data="{ isActive: false, open: false}">
-                  <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
-                  <a
-                    href="#"
-                    @click="$event.preventDefault(); open = !open"
-                    class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    :class="{'bg-primary-100 dark:bg-primary': isActive || open}"
-                    role="button"
-                    aria-haspopup="true"
-                    :aria-expanded="(open || isActive) ? 'true' : 'false'"
-                  >
-                    <span aria-hidden="true">
-                      <svg
-                        class="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                        />
-                      </svg>
-                    </span>
-                    <span class="ml-2 text-sm"> Layouts </span>
-                    <span aria-hidden="true" class="ml-auto">
-                      <!-- active class 'rotate-180' -->
-                      <svg
-                        class="w-4 h-4 transition-transform transform"
-                        :class="{ 'rotate-180': open }"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </a>
-                  <div x-show="open" class="mt-2 space-y-2 px-7" role="menu" aria-label="Layouts">
-                    <!-- active & hover classes 'text-gray-700 dark:text-light' -->
-                    <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
-                    <a
-                      href="layouts/two-columns-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Two Columns Sidebar
-                    </a>
-                    <a
-                      href="layouts/mini-plus-one-columns-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Mini + One Columns Sidebar
-                    </a>
-                    <a
-                      href="layouts/mini-column-sidebar.html"
-                      role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
-                    >
-                      Mini Column Sidebar
-                    </a>
-                  </div>
-                </div>
               </nav>
             </div>
           </header>
@@ -1047,127 +792,109 @@
           <main>
             <!-- Content header -->
             <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
-              <h1 class="text-2xl font-semibold">Search Address</h1>
-              </div>
+              <h1 class="text-2xl font-semibold">Subscribe</h1>
 
-            <!-- Content -->
-            <div class="mt-2">
-              <!-- State cards -->
-              <div class="grid grid-cols-1 gap-8 p-4 lg:grid-cols-2 xl:grid-cols-4 ">
-                <input
-                type="text"
-                id="user_adr"
-                name="user_adr"
-                class=" w-full py-2 px-7 rounded-full dark:border-primary-darker" style="background-color: #456b8a;"
-                placeholder="Search..."
-              />
-              <div >
-                <button
-                  type="button"
-                  id="adr_button"
-                  class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
-                  style="margin-top : 4px;"
-                >
-                  Register
-                </button>
-                <!-- <button class="btn btn-warning mt-2 py-2 font-bold rounded-full ">Button</button> -->
-              </div>
-
-              </div>
-              <!-- 지갑정보 -->
-              <div class="grid p-4 rounded-md dark:bg-darker">
-                <div class="grid p-4 grid-cols-11">
-                  <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;"
-                  >
-                    Address
-                  </h6>
-                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a; margin-left: 100px">
-                    <div class="text-xl" id="BlockInfo_1" style="color: rgb(255, 255, 255); margin-left: 15px;">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="grid p-4 grid-cols-11">
-                  <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;"
-                  >
-                    Cash
-                  </h6>
-                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
-                    <div class="text-xl" id="BlockInfo_2" style="color: rgb(255, 255, 255); margin-left: 15px;">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="grid p-4 grid-cols-11">
-                  <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;"
-                  >
-                    Hash
-                  </h6>
-                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
-                    <div class="text-xl" id="BlockInfo_3" style="color: rgb(255, 255, 255); margin-left: 15px;">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="grid p-4 grid-cols-11">
-                  <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;"
-                  >
-                   Count
-                  </h6>
-                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
-                    <div class="text-xl" id="BlockInfo_4" style="color: rgb(255, 255, 255); margin-left: 15px;">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="grid p-4 grid-cols-11">
-                  <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;"
-                  >
-                    Undefined trade
-                  </h6>
-                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
-                    <div class="text-xl" id="BlockInfo_5" style="color: rgb(255, 255, 255); margin-left: 15px;">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="grid p-4 grid-cols-11">
-                  <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;" 
-                  >
-                    Total receive
-                  </h6>
-                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
-                    <div class="text-xl" id="BlockInfo_6" style="color: rgb(255, 255, 255); margin-left: 15px;">
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="grid p-4 grid-cols-11">
-                  <h6
-                    class="text-2xl font-large leading-none"
-                    style="padding-bottom: 20px; color: white; width:200px;"
-                  >
-                    Total sent
-                  </h6>
-                  <div class=" rounded-md" style="width:500px; height: 30px; background-color: #456b8a;  margin-left: 100px">
-                    <div class="text-xl" id="BlockInfo_7" style="color: rgb(255, 255, 255); margin-left: 15px;">
-                      
-                    </div>
-                  </div>
-                </div>
+             
             </div>
+            <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 " >
+              <!-- Active users chart -->
+              <div class="col-span-1 bg-white rounded-md dark:bg-dark">
+                
+               
+                <!-- Chart -->
+                <div class="relative p-4 text-xl"style="text-align:center;">
+                  <p class="text-3xl font-bold "style="padding: 40px 0;">요금제 안내</p>
+                  <p class="p-2">기업의 상황에 맞는 플랜을 선택해 보세요.</p>
+                  <p class="p-2">도움이 필요할 경우 도입문의를 남겨주셔도 좋습니다.</p>
+
+                </div>
+              </div>
+          </div>
+
+            
+            
+
+              <!-- Charts -->
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
+                
+
+                
+                
+              </div>
+
+              
+              <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
+                <!-- Bar chart card -->
+                <div class="col bg-white rounded-md dark:bg-darker" style="background-color: #52637a;" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-2xl font-semibold text-gray-500 dark:text-light">Basic</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-2 h-72">
+                    <p class="text-xl p-2 font-semibold" style="padding-top: 30px;">WatchDogs를 1주일 이용할 수 있는 플랜</p>
+                
+                    <div class="relative p-2" style="padding-top: 30px;">
+                      <ul class="text-md">
+                        <li class="p-2">올인원 소통부터 문서 협업까지, 고도화된 협업</li>
+                        <li class="p-2">엔드포인트와 네트워크를 아우르는 강화된 보안</li>
+                        <li class="p-2">ORANGE 플랜의 모든 기능 지원</li>
+                        </ul>
+                    </div>
+                   
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md " style="background-color: #35547a;" x-data="{ isOn: false }">
+                  <!-- Card header -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-2xl font-semibold text-gray-500 dark:text-light">Standard</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-2 h-72">
+                    <p class="text-xl p-2 font-semibold" style="padding-top: 30px;">WatchDogs를 3개월 이용할 수 있는 플랜</p>
+                
+                    <div class="relative p-2" style="padding-top: 30px;">
+                      <ul class="text-md">
+                        <li class="p-2">올인원 소통부터 문서 협업까지, 고도화된 협업</li>
+                        <li class="p-2">엔드포인트와 네트워크를 아우르는 강화된 보안</li>
+                        <li class="p-2">ORANGE 플랜의 모든 기능 지원</li>
+                        </ul>
+                    </div>
+                   
+                  </div>
+                </div>
+
+                <div class="col bg-white rounded-md dark:bg-darker" style="background-color: #124686;" x-data="{ isOn: false }">
+                  <!-- Card header #244d80; -->
+                  <div class="flex items-center justify-between p-4 border-b dark:border-primary">
+                    <h4 class="text-2xl font-semibold text-gray-500 dark:text-light">Premium</h4>
+                    
+                  </div>
+                  <!-- Chart -->
+                  <div class="relative p-2 h-72">
+                    <p class="text-xl p-2 font-semibold" style="padding-top: 30px; font-size: 19px;">WatchDogs를 12개월 이용할 수 있는 플랜</p>
+                
+                    <div class="relative p-2" style="padding-top: 30px;">
+                      <ul class="text-md">
+                        <li class="p-2">올인원 소통부터 문서 협업까지, 고도화된 협업</li>
+                        <li class="p-2">엔드포인트와 네트워크를 아우르는 강화된 보안</li>
+                        <li class="p-2">ORANGE 플랜의 모든 기능 지원</li>
+                        </ul>
+                    </div>
+                   
+                  </div>
+                </div>
+              </div>
+
+              
+
+              
+
+              <!-- Two grid columns -->
+              
           </main>
 
           <!-- Main footer -->
@@ -1175,11 +902,7 @@
             class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker"
           >
             <div>Watch Dogs &copy; 2022</div>
-            <div>
-              Made by
-              123
-            </div>
-          </footer>
+           </footer>
         </div>
 
         <!-- Panels -->
@@ -1765,62 +1488,7 @@
 
     <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-    <script src="build/js/script2.js"></script>
-    <script type="text/javascript">
-	 	// address 지갑주소 연동
-	    $(document).ready(function(){
-	    	$("#adr_button").click(function(event){
-	    		//event.preventDefault();
-	    		var user_adr = $("#user_adr");
-	    		console.log(user_adr);
-	    		
-	    		$.ajax({
-	    	        url : 'http://127.0.0.1:5000/user_adr',
-	    	        async : true,
-	    	        type : 'get',
-	    	        data : user_adr,
-	    	        dataType:'json',
-	    			success : function(res){
-	    				console.log(res);
-	    				
-	    				$("#BlockInfo_1").html(res.address);
-	    				
-	    				let num1 = res.final_balance/100000000
-	    				let balance1 = num1.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	    				$("#BlockInfo_2").html(balance1+' BTC');
-	    				
-	    				$("#BlockInfo_3").html(res.hash160);
-	    				$("#BlockInfo_4").html(res.n_tx);
-	    				$("#BlockInfo_5").html(res.n_unredeemed);
-	    				
-	    				let num2 = res.total_received/100000000
-	    				let balance2 = num2.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	    				$("#BlockInfo_6").html(balance2+' BTC');
-	    				
-	    				let num3 = res.total_sent/100000000
-	    				let balance3 = num3.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-	    				$("#BlockInfo_7").html(balance3+' BTC'); 
-	    				
-	    				/* let cnt = 0;
-	    				for(let i = 0; i < res.txs.input.length; i++){
-	    					if(cnt <= i){
-	    						cnt++;
-		    					div_transactions = `
-		    						<div>`+res.txs.input[i].prev_out[i]+`</div>
-		    					`
-		    					$("#BlockInfo_4").append(div_transactions)
-	    					}else{
-	    						$("#BlockInfo_4").empty()
-	    					}
-	    				} */
-	    			},error : function(e){
-	    				console.log(e);
-	    				alert("올바른 형식의 파일을 넣어주세요.");
-	    			}
-	    	    });
-	    	});
-	    });
-    </script>
+    <script src="build/js/script.js"></script>
     <script>
       const setup = () => {
         const getTheme = () => {
@@ -1870,6 +1538,20 @@
           }
         }
 
+        const updateBarChart1 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart1.data.datasets.push(data)
+            barChart1.update()
+          } else {
+            barChart1.data.datasets.splice(1)
+            barChart1.update()
+          }
+        }
+
         const updateDoughnutChart = (on) => {
           const data = random()
           const color = 'rgb(207, 250, 254)'
@@ -1883,6 +1565,45 @@
             doughnutChart.data.datasets[0].data.splice(0, 1)
             doughnutChart.data.datasets[0].backgroundColor.splice(0, 1)
             doughnutChart.update()
+          }
+        }
+        const updateBarChart2 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart2.data.datasets.push(data)
+            barChart2.update()
+          } else {
+            barChart2.data.datasets.splice(1)
+            barChart2.update()
+          }
+        }
+        const updateBarChart3 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart3.data.datasets.push(data)
+            barChart3.update()
+          } else {
+            barChart3.data.datasets.splice(1)
+            barChart3.update()
+          }
+        }
+        const updateBarChart4 = (on) => {
+          const data = {
+            data: randomData(),
+            backgroundColor: 'rgb(207, 250, 254)',
+          }
+          if (on) {
+            barChart4.data.datasets.push(data)
+            barChart4.update()
+          } else {
+            barChart4.data.datasets.splice(1)
+            barChart4.update()
           }
         }
 
@@ -1932,9 +1653,7 @@
             this.$nextTick(() => {
               this.$refs.searchInput.focus()
             })
-          }
-          
-          ,
+          },
           isMobileSubMenuOpen: false,
           openMobileSubMenu() {
             this.isMobileSubMenuOpen = true

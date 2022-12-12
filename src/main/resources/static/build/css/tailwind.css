@@ -990,6 +990,10 @@ video {
   flex-shrink: 0;
 }
 
+.font-gothic {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+
 .font-normal {
   font-weight: 400;
 }
@@ -1097,6 +1101,10 @@ video {
   line-height: 2.25rem;
 }
 
+.text-8xl {
+  font-size: 5rem;
+  line-height: 1;
+}
 
 .text-9xl {
   font-size: 8rem;
@@ -2073,6 +2081,23 @@ video {
     margin-bottom: calc(0px * var(--tw-space-y-reverse));
   }
 
+#nav1{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 999;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+.nav1_right{
+  background-color: black; 
+  text-align: right; 
+  display: flex;
+
+}
   .lg\:hidden {
     display: none;
   }

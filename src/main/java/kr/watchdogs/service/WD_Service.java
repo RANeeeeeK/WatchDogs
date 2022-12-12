@@ -59,5 +59,8 @@ public class WD_Service {
 	public String intro() {
 		return "intro";
 	}
+	public String Subcribe() {
+		return "Subcribe";
+	}
 
 }

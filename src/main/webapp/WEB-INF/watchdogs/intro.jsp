@@ -50,19 +50,33 @@
         <!-- Sidebar -->
         
 
-        <div class="border:1; flex-1 h-full overflow-x-hidden overflow-y-auto" style=" background-color: black; border-bottom: 1px; border-color: white;">
+        <div class="border:1; flex-1 h-full w-full overflow-x-hidden overflow-y-auto" style=" background-color: black; border-bottom: 1px; border-color: white;">
           <!-- Navbar -->
         
-          <header id= nav1 class=" justify-between relative bg-white dark:bg-darker " style="background-color: black; border-color: #16cae2;">
+          <header id= nav1 class=" justify-between relative bg-white dark:bg-darker "  style="background-color: black; border-color: #16cae2;">
           <!-- Brand -->
+           
               <a
                 class="inline-block text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
                 style="background-color: black;"
               >
                WatchDogs
               </a>
-              <div class="justify-between p-4 dark:border-primary-darker" >
-             
+           <div class="p-4 dark:border-primary-darker" style="padding-right:100px;" >  
+           <form class="space-y-6 " id="log"> 
+            
+            <div class="nav1_right" style="padding-right: 20px;">
+             <button 
+                type="button"
+               id="log"
+                class="text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
+              >
+               Login
+              
+              </button>
+            </div>
+           </form>
+            	
                 <!-- Brand -->
                 
          
@@ -126,15 +140,7 @@
                 </div>
               </nav>
             </div>
-            <form class="space-y-6" id="log"> 
-            <div class="nav1_right" style="padding-right: 20px;">
-              <span
-                class="text-3xl font-bold tracking-wider uppercase text-primary-dark dark:text-light"
-              >
-               Login
-              </span>
-            </div>
-           </form>
+            
           
           
            
@@ -306,18 +312,18 @@
         }
 
         const setColors = (color) => {
-          const root = document.documentElement
-          root.style.setProperty('--color-primary', `var(--color-${color})`)
-          root.style.setProperty('--color-primary-50', `var(--color-${color}-50)`)
-          root.style.setProperty('--color-primary-100', `var(--color-${color}-100)`)
-          root.style.setProperty('--color-primary-light', `var(--color-${color}-light)`)
-          root.style.setProperty('--color-primary-lighter', `var(--color-${color}-lighter)`)
-          root.style.setProperty('--color-primary-dark', `var(--color-${color}-dark)`)
-          root.style.setProperty('--color-primary-darker', `var(--color-${color}-darker)`)
-          this.selectedColor = color
-          window.localStorage.setItem('color', color)
-          //
-        }
+            const root = document.documentElement
+            root.style.setProperty('--color-primary', `var(--color-cyan)`)
+            root.style.setProperty('--color-primary-50', `var(--color-cyan-50)`)
+            root.style.setProperty('--color-primary-100', `var(--color-cyan-100)`)
+            root.style.setProperty('--color-primary-light', `var(--color-cyan-light)`)
+            root.style.setProperty('--color-primary-lighter', `var(--color-cyan-lighter)`)
+            root.style.setProperty('--color-primary-dark', `var(--color-cyan-dark)`)
+            root.style.setProperty('--color-primary-darker', `var(--color-cyan-darker)`)
+            this.selectedColor = color
+            window.localStorage.setItem('color', color)
+            //
+          }
 
         const updateBarChart = (on) => {
           const data = {

@@ -33,7 +33,7 @@ $(document).ready(function() {
 				console.log(res);
 				if(res>2){
 					alert("조회수가 3이 넘었습니다 구독후 이용해주세요.");
-					location.href="Dashboard";
+					location.href="Subcribe";
 				}else{ 
 					var realcount = 3-res;
 					alert("앞으로 이용가능한 진단횟수는"+realcount+"번입니다.");
