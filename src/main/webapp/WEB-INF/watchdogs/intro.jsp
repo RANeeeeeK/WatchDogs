@@ -53,7 +53,7 @@
         <div class="border:1; flex-1 h-full w-full overflow-x-hidden overflow-y-auto" style=" background-color: black; border-bottom: 1px; border-color: white;">
           <!-- Navbar -->
         
-          <header id= nav1 class=" justify-between relative bg-white dark:bg-darker "  style="background-color: black; border-color: #16cae2;">
+          <header id= nav1 class="border-b justify-between relative bg-white dark:bg-darker "  style="background-color: black; border-color: #16cae2;">
           <!-- Brand -->
            
               <a
@@ -62,10 +62,10 @@
               >
                WatchDogs
               </a>
-           <div class="p-4 dark:border-primary-darker" style="padding-right:100px;" >  
+           <div class="dark:border-primary-darker"  >  
            <form class="space-y-6 " id="log"> 
             
-            <div class="nav1_right" style="padding-right: 20px;">
+            <div class="nav1_right" style="padding-right: 0px;">
              <button 
                 type="button"
                id="log"

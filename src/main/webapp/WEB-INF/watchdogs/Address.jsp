@@ -1068,7 +1068,7 @@
                   class="w-20 pl-8 h-8 font-medium text-center text-white transition-colors duration-200 rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 dark:focus:ring-offset-darker"
                   style="margin-top : 4px;"
                 >
-                  Register
+                  Search
                 </button>
                 <!-- <button class="btn btn-warning mt-2 py-2 font-bold rounded-full ">Button</button> -->
               </div>
@@ -1782,7 +1782,11 @@
 	    	        dataType:'json',
 	    			success : function(res){
 	    				console.log(res);
-	    				
+	    				let cnt = 0;
+	    				$("#BlockInfo_1").empty();
+	    				$("#BlockInfo_3").empty();
+	    				$("#BlockInfo_4").empty();
+	    				$("#BlockInfo_5").empty();
 	    				$("#BlockInfo_1").html(res.address);
 	    				
 	    				let num1 = res.final_balance/100000000
@@ -1815,7 +1819,7 @@
 	    				} */
 	    			},error : function(e){
 	    				console.log(e);
-	    				alert("올바른 형식의 파일을 넣어주세요.");
+	    				alert("연결 오류.");
 	    			}
 	    	    });
 	    	});
