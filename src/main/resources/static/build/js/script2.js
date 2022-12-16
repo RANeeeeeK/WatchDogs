@@ -35,7 +35,7 @@ $(document).ready(function() {
 					alert("조회수가 3이 넘었습니다 구독후 이용해주세요.");
 					location.href="Subcribe";
 				}else{ 
-					var realcount = 3-res;
+					var realcount = 2-res;
 					alert("앞으로 이용가능한 진단횟수는"+realcount+"번입니다.");
 					$.ajax({
 						url: 'http://127.0.0.1:5000/user_csv',
